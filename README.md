@@ -38,8 +38,8 @@ With Git, you can get OPSE repositories:
 
 ```
 mkdir opse; cd opse
-git clone --recurse-submodules https://gitlab.com/opse-dev/opse-framework.git
-git clone https://gitlab.com/opse-dev/opse-gui.git
+git clone --recurse-submodules https://github.com/OPSE-Developers/OPSE-Framework.git
+git clone https://github.com/OPSE-Developers/OPSE-Gui.git
 ```
 
 Once you got the repositories, you have to launch the installation script `install.sh`.
