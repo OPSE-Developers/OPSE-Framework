@@ -1,0 +1,18 @@
+[submodule "Death"]
+	path = core/tools/OPSE-Death-Plugin
+	url = https://github.com/OPSE-Developers/OPSE-Death-Plugin.git
+[submodule "Facebook"]
+	path = core/tools/OPSE-Facebook-Plugin
+	url = https://github.com/OPSE-Developers/OPSE-Facebook-Plugin.git
+[submodule "Holehe"]
+	path = core/tools/OPSE-Holehe-Plugin
+	url = https://github.com/OPSE-Developers/OPSE-Holehe-Plugin.git
+[submodule "InstantUsername"]
+	path = core/tools/OPSE-InstantUsername-Plugin
+	url = https://github.com/OPSE-Developers/OPSE-InstantUsername-Plugin.git
+[submodule "Records"]
+	path = core/tools/OPSE-Records-Plugin
+	url = https://github.com/OPSE-Developers/OPSE-Records-Plugin.git
+[submodule "Twitter"]
+	path = core/tools/OPSE-InstantUsername-Plugin
+	url = https://github.com/OPSE-Developers/OPSE-Twitter-Plugin.git

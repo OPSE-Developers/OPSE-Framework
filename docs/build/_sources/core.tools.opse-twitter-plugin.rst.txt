@@ -1,0 +1,37 @@
+core.tools.opse\-twitter\-plugin package
+========================================
+
+Submodules
+----------
+
+core.tools.opse\-twitter\-plugin.Twitter module
+-----------------------------------------------
+
+.. automodule:: core.tools.opse-twitter-plugin.Twitter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+core.tools.opse\-twitter\-plugin.TwitterAccount module
+------------------------------------------------------
+
+.. automodule:: core.tools.opse-twitter-plugin.TwitterAccount
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+core.tools.opse\-twitter\-plugin.TwitterMessage module
+------------------------------------------------------
+
+.. automodule:: core.tools.opse-twitter-plugin.TwitterMessage
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: core.tools.opse-twitter-plugin
+   :members:
+   :undoc-members:
+   :show-inheritance:

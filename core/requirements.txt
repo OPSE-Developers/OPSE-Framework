@@ -1,0 +1,29 @@
+geopy
+pyyaml
+flask
+flask-cors
+waitress
+colorama
+requests
+bs4
+aiohttp==3.7.0
+aiohttp_socks<=0.4.1
+fake-useragent
+googletransx
+dataclasses
+httpx
+phonenumbers
+
+# unused  - to verify
+# trio
+# tqdm
+# leakcheck
+# aiodns
+# beautifulsoup4
+# cchardet
+# elasticsearch
+# pysocks
+# pandas>=0.23.0
+# schedule
+# pysqlite3
+# db-sqlite3

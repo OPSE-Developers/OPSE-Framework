@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>core.exceptions package &#8212; OPSE-Framework 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="core.tools package" href="core.tools.html" />
+    <link rel="prev" title="core.classes.types package" href="core.classes.types.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="core.tools.html" title="core.tools package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="core.classes.types.html" title="core.classes.types package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">OPSE-Framework 1.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" accesskey="U">core package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">core.exceptions package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="core-exceptions-package">
+<h1>core.exceptions package<a class="headerlink" href="#core-exceptions-package" title="Permalink to this headline">¶</a></h1>
+<section id="module-core.exceptions.ApiToMutchInstantiationException">
+<span id="core-exceptions-apitomutchinstantiationexception-module"></span><h2>core.exceptions.ApiToMutchInstantiationException module<a class="headerlink" href="#module-core.exceptions.ApiToMutchInstantiationException" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="core.exceptions.ApiToMutchInstantiationException.ApiToMutchInstantiationException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ApiToMutchInstantiationException</span></span><a class="headerlink" href="#core.exceptions.ApiToMutchInstantiationException.ApiToMutchInstantiationException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.9/library/exceptions.html#Exception" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>This exception is derived from Exception.
+It is Raised when more than one API is instantiated.</p>
+</dd></dl>
+
+</section>
+<section id="module-core.exceptions.PreviousException">
+<span id="core-exceptions-previousexception-module"></span><h2>core.exceptions.PreviousException module<a class="headerlink" href="#module-core.exceptions.PreviousException" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="core.exceptions.PreviousException.PreviousException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PreviousException</span></span><a class="headerlink" href="#core.exceptions.PreviousException.PreviousException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.9/library/exceptions.html#Exception" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>This exception is derived from Exception.
+It is Raised when a <a class="reference external" href="https://docs.python.org/3.9/library/signal.html#signal.SIGINT" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">SIGINT</span></code></a> is detected by the
+<a class="reference external" href="https://docs.python.org/3.9/library/signal.html#signal.signal" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">signal()</span></code></a> function.</p>
+</dd></dl>
+
+</section>
+<section id="module-core.exceptions.TaskInterrupt">
+<span id="core-exceptions-taskinterrupt-module"></span><h2>core.exceptions.TaskInterrupt module<a class="headerlink" href="#module-core.exceptions.TaskInterrupt" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="core.exceptions.TaskInterrupt.TaskInterrupt">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TaskInterrupt</span></span><a class="headerlink" href="#core.exceptions.TaskInterrupt.TaskInterrupt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.9/library/exceptions.html#Exception" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>This exception is derived from Exception.
+It is thrown into a specific thread when a PreviousException has
+been raised. It allows the program to shutdown all running threads.</p>
+</dd></dl>
+
+</section>
+<section id="module-core.exceptions.ToolGetProfileDuringExecutionException">
+<span id="core-exceptions-toolgetprofileduringexecutionexception-module"></span><h2>core.exceptions.ToolGetProfileDuringExecutionException module<a class="headerlink" href="#module-core.exceptions.ToolGetProfileDuringExecutionException" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="core.exceptions.ToolGetProfileDuringExecutionException.ToolGetProfileDuringExecutionException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ToolGetProfileDuringExecutionException</span></span><a class="headerlink" href="#core.exceptions.ToolGetProfileDuringExecutionException.ToolGetProfileDuringExecutionException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.9/library/exceptions.html#Exception" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>This exception is derived from Exception.
+It is raised when an OPSE tool is ask to return profiles while it is
+still running.</p>
+</dd></dl>
+
+</section>
+<section id="module-core.exceptions.ToolMissDataInputException">
+<span id="core-exceptions-toolmissdatainputexception-module"></span><h2>core.exceptions.ToolMissDataInputException module<a class="headerlink" href="#module-core.exceptions.ToolMissDataInputException" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="core.exceptions.ToolMissDataInputException.ToolMissDataInputException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ToolMissDataInputException</span></span><a class="headerlink" href="#core.exceptions.ToolMissDataInputException.ToolMissDataInputException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.9/library/exceptions.html#Exception" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>This exception is derived from Exception.
+It is raised when an OPSE tool is ask to run without all required
+input data.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">core.exceptions package</a><ul>
+<li><a class="reference internal" href="#module-core.exceptions.ApiToMutchInstantiationException">core.exceptions.ApiToMutchInstantiationException module</a></li>
+<li><a class="reference internal" href="#module-core.exceptions.PreviousException">core.exceptions.PreviousException module</a></li>
+<li><a class="reference internal" href="#module-core.exceptions.TaskInterrupt">core.exceptions.TaskInterrupt module</a></li>
+<li><a class="reference internal" href="#module-core.exceptions.ToolGetProfileDuringExecutionException">core.exceptions.ToolGetProfileDuringExecutionException module</a></li>
+<li><a class="reference internal" href="#module-core.exceptions.ToolMissDataInputException">core.exceptions.ToolMissDataInputException module</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="core.classes.types.html"
+                          title="previous chapter">core.classes.types package</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="core.tools.html"
+                          title="next chapter">core.tools package</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/core.exceptions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="core.tools.html" title="core.tools package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="core.classes.types.html" title="core.classes.types package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">OPSE-Framework 1.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" >core package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">core.exceptions package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, OPSE Developers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

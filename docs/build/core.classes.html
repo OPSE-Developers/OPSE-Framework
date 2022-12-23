@@ -1,0 +1,906 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>core.classes package &#8212; OPSE-Framework 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="core.classes.account package" href="core.classes.account.html" />
+    <link rel="prev" title="core.api package" href="core.api.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="core.classes.account.html" title="core.classes.account package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="core.api.html" title="core.api package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">OPSE-Framework 1.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" accesskey="U">core package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">core.classes package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="core-classes-package">
+<h1>core.classes package<a class="headerlink" href="#core-classes-package" title="Permalink to this headline">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core.classes.account.html">core.classes.account package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.account.html#module-core.classes.account.Account">core.classes.account.Account module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.account.html#module-core.classes.account.WebsiteAccount">core.classes.account.WebsiteAccount module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core.classes.message.html">core.classes.message package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.message.html#module-core.classes.message.Message">core.classes.message.Message module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core.classes.organization.html">core.classes.organization package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.organization.html#module-core.classes.organization.Organization">core.classes.organization.Organization module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core.classes.types.html">core.classes.types package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.types.html#module-core.classes.types.OpseAddress">core.classes.types.OpseAddress module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.types.html#module-core.classes.types.OpseBirth">core.classes.types.OpseBirth module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.types.html#module-core.classes.types.OpseDate">core.classes.types.OpseDate module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.types.html#module-core.classes.types.OpseDeath">core.classes.types.OpseDeath module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.types.html#module-core.classes.types.OpseInt">core.classes.types.OpseInt module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.types.html#module-core.classes.types.OpseLocation">core.classes.types.OpseLocation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.types.html#module-core.classes.types.OpsePhoneNumber">core.classes.types.OpsePhoneNumber module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.types.html#module-core.classes.types.OpseStr">core.classes.types.OpseStr module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.classes.types.html#module-core.classes.types.OpseType">core.classes.types.OpseType module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-core.classes.Profile">
+<span id="core-classes-profile-module"></span><h2>core.classes.Profile module<a class="headerlink" href="#module-core.classes.Profile" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">firstname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/typing.html#typing.Optional" title="(in Python v3.9)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lastname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/typing.html#typing.Optional" title="(in Python v3.9)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst_middlenames</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gender</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/typing.html#typing.Optional" title="(in Python v3.9)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">birthdate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/typing.html#typing.Optional" title="(in Python v3.9)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseDate.OpseDate" title="core.classes.types.OpseDate.OpseDate"><span class="pre">classes.types.OpseDate.OpseDate</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deathdate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/typing.html#typing.Optional" title="(in Python v3.9)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseDate.OpseDate" title="core.classes.types.OpseDate.OpseDate"><span class="pre">classes.types.OpseDate.OpseDate</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/typing.html#typing.Optional" title="(in Python v3.9)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseInt.OpseInt" title="core.classes.types.OpseInt.OpseInt"><span class="pre">classes.types.OpseInt.OpseInt</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst_phone_numbers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst_usernames</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst_emails</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst_accounts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.account.html#core.classes.account.Account.Account" title="core.classes.account.Account.Account"><span class="pre">classes.account.Account.Account</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst_pictures</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst_ips</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst_addresses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseAddress.OpseAddress" title="core.classes.types.OpseAddress.OpseAddress"><span class="pre">classes.types.OpseAddress.OpseAddress</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst_locations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseLocation.OpseLocation" title="core.classes.types.OpseLocation.OpseLocation"><span class="pre">classes.types.OpseLocation.OpseLocation</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst_organizations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.organization.html#core.classes.organization.Organization.Organization" title="core.classes.organization.Organization.Organization"><span class="pre">classes.organization.Organization.Organization</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">political_orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/typing.html#typing.Optional" title="(in Python v3.9)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.9/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Class that represents a Profile in OPSE context.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.calc_age">
+<span class="sig-name descname"><span class="pre">calc_age</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.calc_age" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that calculates the age between the birth and the
+death dates. Set the profile age with the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.9/library/exceptions.html#TypeError" title="(in Python v3.9)"><strong>TypeError</strong></a> – If birth date is missing.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.clone">
+<span class="sig-name descname"><span class="pre">clone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">core.classes.Profile.T</span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.clone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a fully independant clone of the current Profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A deepcopy of the profile.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#core.classes.Profile.Profile" title="core.classes.Profile.Profile">Profile</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_age">
+<span class="sig-name descname"><span class="pre">get_age</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseInt.OpseInt" title="core.classes.types.OpseInt.OpseInt"><span class="pre">classes.types.OpseInt.OpseInt</span></a></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_age" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile age.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The profile age.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseInt.OpseInt" title="core.classes.types.OpseInt.OpseInt">OpseInt</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_birth_address">
+<span class="sig-name descname"><span class="pre">get_birth_address</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseAddress.OpseAddress" title="core.classes.types.OpseAddress.OpseAddress"><span class="pre">classes.types.OpseAddress.OpseAddress</span></a></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_birth_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile birth address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The profile birth address.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseAddress.OpseAddress" title="core.classes.types.OpseAddress.OpseAddress">OpseAddress</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_birthdate">
+<span class="sig-name descname"><span class="pre">get_birthdate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseDate.OpseDate" title="core.classes.types.OpseDate.OpseDate"><span class="pre">classes.types.OpseDate.OpseDate</span></a></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_birthdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile birth date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The profile birth date.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseDate.OpseDate" title="core.classes.types.OpseDate.OpseDate">OpseDate</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_death_address">
+<span class="sig-name descname"><span class="pre">get_death_address</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseAddress.OpseAddress" title="core.classes.types.OpseAddress.OpseAddress"><span class="pre">classes.types.OpseAddress.OpseAddress</span></a></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_death_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile death address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The profile death address.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseAddress.OpseAddress" title="core.classes.types.OpseAddress.OpseAddress">OpseAddress</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_deathdate">
+<span class="sig-name descname"><span class="pre">get_deathdate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseDate.OpseDate" title="core.classes.types.OpseDate.OpseDate"><span class="pre">classes.types.OpseDate.OpseDate</span></a></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_deathdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile death date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The profile death date.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseDate.OpseDate" title="core.classes.types.OpseDate.OpseDate">OpseDate</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_firstname">
+<span class="sig-name descname"><span class="pre">get_firstname</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_firstname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile first name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The first name.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_gender">
+<span class="sig-name descname"><span class="pre">get_gender</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_gender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile gender.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The profile gender.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_id">
+<span class="sig-name descname"><span class="pre">get_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile identifier.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lastname">
+<span class="sig-name descname"><span class="pre">get_lastname</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_lastname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile last name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The last name.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lst_accounts">
+<span class="sig-name descname"><span class="pre">get_lst_accounts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.account.html#core.classes.account.Account.Account" title="core.classes.account.Account.Account"><span class="pre">classes.account.Account.Account</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_lst_accounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile accounts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the profile accounts.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference internal" href="core.classes.account.html#core.classes.account.Account.Account" title="core.classes.account.Account.Account">Account</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lst_addresses">
+<span class="sig-name descname"><span class="pre">get_lst_addresses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseAddress.OpseAddress" title="core.classes.types.OpseAddress.OpseAddress"><span class="pre">classes.types.OpseAddress.OpseAddress</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_lst_addresses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile physical addresses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the profile addresses.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lst_data_type">
+<span class="sig-name descname"><span class="pre">get_lst_data_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_lst_data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that returns the list of data types used in the
+profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of data types.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lst_emails">
+<span class="sig-name descname"><span class="pre">get_lst_emails</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_lst_emails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile emails.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the profile emails.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lst_ips">
+<span class="sig-name descname"><span class="pre">get_lst_ips</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_lst_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile IP addresses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the profile IP addresses.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lst_locations">
+<span class="sig-name descname"><span class="pre">get_lst_locations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseLocation.OpseLocation" title="core.classes.types.OpseLocation.OpseLocation"><span class="pre">classes.types.OpseLocation.OpseLocation</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_lst_locations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile locations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the profile locations.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lst_middlenames">
+<span class="sig-name descname"><span class="pre">get_lst_middlenames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_lst_middlenames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile middle names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the profile middle names.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lst_organizations">
+<span class="sig-name descname"><span class="pre">get_lst_organizations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.organization.html#core.classes.organization.Organization.Organization" title="core.classes.organization.Organization.Organization"><span class="pre">classes.organization.Organization.Organization</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_lst_organizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile organizations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the profile organizations.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lst_phone_numbers">
+<span class="sig-name descname"><span class="pre">get_lst_phone_numbers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_lst_phone_numbers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile phone numbers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the profile phone numbers.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lst_pictures">
+<span class="sig-name descname"><span class="pre">get_lst_pictures</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_lst_pictures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile pictures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the profile pictures.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lst_profile">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_lst_profile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.get_lst_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of existing profiles.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_lst_usernames">
+<span class="sig-name descname"><span class="pre">get_lst_usernames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_lst_usernames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile usernames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the profile usernames.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_political_orientation">
+<span class="sig-name descname"><span class="pre">get_political_orientation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_political_orientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the profile political orientation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The profile political orientation.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr">OpseStr</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_profile">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profile_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">core.classes.Profile.T</span></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a Profile from an identifier.</p>
+<p>If the identifier given to the function is not linked to a
+Profile, then the function will return None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>profile_id</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The profile’s identifier.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The desire profile.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#core.classes.Profile.Profile" title="core.classes.Profile.Profile">Profile</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.get_summary">
+<span class="sig-name descname"><span class="pre">get_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#core.classes.Profile.Profile.get_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that generates a string summary of the current
+profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A short string representation of the profile.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_age">
+<span class="sig-name descname"><span class="pre">set_age</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseInt.OpseInt" title="core.classes.types.OpseInt.OpseInt"><span class="pre">classes.types.OpseInt.OpseInt</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_age" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile age.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>age</strong> (<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseInt.OpseInt" title="core.classes.types.OpseInt.OpseInt"><em>OpseInt</em></a>) – The new age.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_birth_address">
+<span class="sig-name descname"><span class="pre">set_birth_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">birth_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseAddress.OpseAddress" title="core.classes.types.OpseAddress.OpseAddress"><span class="pre">classes.types.OpseAddress.OpseAddress</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_birth_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile birth address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>birth_address</strong> (<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseAddress.OpseAddress" title="core.classes.types.OpseAddress.OpseAddress"><em>OpseAddress</em></a>) – The new birth address.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_birthdate">
+<span class="sig-name descname"><span class="pre">set_birthdate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">birthdate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseDate.OpseDate" title="core.classes.types.OpseDate.OpseDate"><span class="pre">classes.types.OpseDate.OpseDate</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_birthdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile birth date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>birthdate</strong> (<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseDate.OpseDate" title="core.classes.types.OpseDate.OpseDate"><em>OpseDate</em></a>) – The new birth date.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_death_address">
+<span class="sig-name descname"><span class="pre">set_death_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">death_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseAddress.OpseAddress" title="core.classes.types.OpseAddress.OpseAddress"><span class="pre">classes.types.OpseAddress.OpseAddress</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_death_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile death address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>death_address</strong> (<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseAddress.OpseAddress" title="core.classes.types.OpseAddress.OpseAddress"><em>OpseAddress</em></a>) – The new death address.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_deathdate">
+<span class="sig-name descname"><span class="pre">set_deathdate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deathdate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseDate.OpseDate" title="core.classes.types.OpseDate.OpseDate"><span class="pre">classes.types.OpseDate.OpseDate</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_deathdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile death date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>deathdate</strong> (<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseDate.OpseDate" title="core.classes.types.OpseDate.OpseDate"><em>OpseDate</em></a>) – The new death date.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_firstname">
+<span class="sig-name descname"><span class="pre">set_firstname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">firstname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_firstname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile first name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>firstname</strong> (<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><em>OpseStr</em></a>) – The new first name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_gender">
+<span class="sig-name descname"><span class="pre">set_gender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gender</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_gender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile gender.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gender</strong> (<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><em>OpseStr</em></a>) – The new gender.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_lastname">
+<span class="sig-name descname"><span class="pre">set_lastname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lastname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_lastname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile last name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lastname</strong> (<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><em>OpseStr</em></a>) – The new last name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_lst_accounts">
+<span class="sig-name descname"><span class="pre">set_lst_accounts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst_accounts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.account.html#core.classes.account.Account.Account" title="core.classes.account.Account.Account"><span class="pre">classes.account.Account.Account</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_lst_accounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile accounts.</p>
+<p>This method extends the current list of accounts. Use the
+getter to do other actions on the list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lst_accounts</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><a class="reference internal" href="core.classes.account.html#core.classes.account.Account.Account" title="core.classes.account.Account.Account"><em>Account</em></a><em>]</em>) – The new accounts.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_lst_addresses">
+<span class="sig-name descname"><span class="pre">set_lst_addresses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst_addresses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseAddress.OpseAddress" title="core.classes.types.OpseAddress.OpseAddress"><span class="pre">classes.types.OpseAddress.OpseAddress</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_lst_addresses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile physical addresses.</p>
+<p>This method extends the current list of addresses. Use the
+getter to do other actions on the list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lst_addresses</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseAddress.OpseAddress" title="core.classes.types.OpseAddress.OpseAddress"><em>OpseAddress</em></a><em>]</em>) – The new addresses.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_lst_emails">
+<span class="sig-name descname"><span class="pre">set_lst_emails</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst_emails</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_lst_emails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile emails.</p>
+<p>This method extends the current list of emails. Use the
+getter to do other actions on the list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lst_emails</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><em>OpseStr</em></a><em>]</em>) – The new</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_lst_ips">
+<span class="sig-name descname"><span class="pre">set_lst_ips</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst_ips</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_lst_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile IP addresses.</p>
+<p>This method extends the current list of IP addresses. Use the
+getter to do other actions on the list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lst_ips</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><em>OpseStr</em></a><em>]</em>) – The new IP addresses.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_lst_locations">
+<span class="sig-name descname"><span class="pre">set_lst_locations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst_locations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseLocation.OpseLocation" title="core.classes.types.OpseLocation.OpseLocation"><span class="pre">classes.types.OpseLocation.OpseLocation</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_lst_locations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile locations.</p>
+<p>This method extends the current list of locations. Use the
+getter to do other actions on the list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lst_locations</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseLocation.OpseLocation" title="core.classes.types.OpseLocation.OpseLocation"><em>OpseLocation</em></a><em>]</em>) – The new locations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_lst_middlenames">
+<span class="sig-name descname"><span class="pre">set_lst_middlenames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst_middlenames</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_lst_middlenames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of self.__lst_second_name</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_lst_organizations">
+<span class="sig-name descname"><span class="pre">set_lst_organizations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst_organizations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.organization.html#core.classes.organization.Organization.Organization" title="core.classes.organization.Organization.Organization"><span class="pre">classes.organization.Organization.Organization</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_lst_organizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile organizations.</p>
+<p>This method extends the current list of organizations. Use the
+getter to do other actions on the list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lst_organizations</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><a class="reference internal" href="core.classes.organization.html#core.classes.organization.Organization.Organization" title="core.classes.organization.Organization.Organization"><em>Organization</em></a><em>]</em>) – The new organizations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_lst_phone_numbers">
+<span class="sig-name descname"><span class="pre">set_lst_phone_numbers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst_phone_numbers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_lst_phone_numbers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile phone numbers.</p>
+<p>This method extends the current list of phone numbers. Use the
+getter to do other actions on the list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lst_phone_numbers</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><em>OpseStr</em></a><em>]</em>) – The new phone numbers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_lst_pictures">
+<span class="sig-name descname"><span class="pre">set_lst_pictures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst_pictures</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_lst_pictures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile pictures.</p>
+<p>This method extends the current list of pictures. Use the
+getter to do other actions on the list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lst_pictures</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><em>OpseStr</em></a><em>]</em>) – The new pictures.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_lst_usernames">
+<span class="sig-name descname"><span class="pre">set_lst_usernames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst_usernames</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_lst_usernames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of self.__lst_usernames</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Profile.Profile.set_political_orientation">
+<span class="sig-name descname"><span class="pre">set_political_orientation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">political_orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><span class="pre">classes.types.OpseStr.OpseStr</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Profile.Profile.set_political_orientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of the profile political orientation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>political_orientation</strong> (<a class="reference internal" href="core.classes.types.html#core.classes.types.OpseStr.OpseStr" title="core.classes.types.OpseStr.OpseStr"><em>OpseStr</em></a>) – The new political orientation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-core.classes.Research">
+<span id="core-classes-research-module"></span><h2>core.classes.Research module<a class="headerlink" href="#module-core.classes.Research" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="core.classes.Research.Research">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Research</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default_profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#core.classes.Profile.Profile" title="core.classes.Profile.Profile"><span class="pre">classes.Profile.Profile</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Research.Research" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.9/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Class that represents a Reseach in OPSE context.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Research.Research.anonymise_unvisible_data">
+<span class="sig-name descname"><span class="pre">anonymise_unvisible_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profile_to_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="(in Python v3.9)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="(in Python v3.9)"><span class="pre">dict</span></a></span></span><a class="headerlink" href="#core.classes.Research.Research.anonymise_unvisible_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that takes a generated dictionary from
+<a class="reference internal" href="core.utils.html#core.utils.utils.to_dict" title="core.utils.utils.to_dict"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_dict()</span></code></a> function and masks
+data which are set to ‘unvisible’ in the profiles visibility
+setting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>profile_to_dict</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – The profile to anonymize.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary profile containing masked data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Research.Research.enrich_profiles">
+<span class="sig-name descname"><span class="pre">enrich_profiles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Research.Research.enrich_profiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that enriches the profile list depending on data
+available in the current profile(s).</p>
+<p>The objective is to get more profiles from an existing profile.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Research.Research.get_id">
+<span class="sig-name descname"><span class="pre">get_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#core.classes.Research.Research.get_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the research identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The research identifier.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Research.Research.get_linked_id">
+<span class="sig-name descname"><span class="pre">get_linked_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="(in Python v3.9)"><span class="pre">dict</span></a></span></span><a class="headerlink" href="#core.classes.Research.Research.get_linked_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that returns all linked identifiers to a this
+Research.</p>
+<p>It is used to manage permissions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary containing the research identifier and a
+list of all the profile’s identifiers.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Research.Research.get_lst_profile">
+<span class="sig-name descname"><span class="pre">get_lst_profile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#core.classes.Profile.Profile" title="core.classes.Profile.Profile"><span class="pre">classes.Profile.Profile</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#core.classes.Research.Research.get_lst_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of the research’s list of profiles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The list of profiles found.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference internal" href="#core.classes.Profile.Profile" title="core.classes.Profile.Profile">Profile</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Research.Research.get_lst_research">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_lst_research</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a></span></span><a class="headerlink" href="#core.classes.Research.Research.get_lst_research" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of existing researches.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of all researches.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Research.Research.get_profiles_visibility">
+<span class="sig-name descname"><span class="pre">get_profiles_visibility</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="(in Python v3.9)"><span class="pre">dict</span></a></span></span><a class="headerlink" href="#core.classes.Research.Research.get_profiles_visibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of profiles visibility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current visibility setting.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Research.Research.get_research">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_research</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">research_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">core.classes.Research.T</span></span></span><a class="headerlink" href="#core.classes.Research.Research.get_research" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a Research from an identifier.</p>
+<p>If the identifier given to the function is not linked to a
+Research, then the function will return None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>research_id</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The research’s identifier.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The desire research.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#core.classes.Research.Research" title="core.classes.Research.Research">Research</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Research.Research.merge_profile">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">merge_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst_profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#core.classes.Profile.Profile" title="core.classes.Profile.Profile"><span class="pre">classes.Profile.Profile</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#core.classes.Profile.Profile" title="core.classes.Profile.Profile"><span class="pre">classes.Profile.Profile</span></a></span></span><a class="headerlink" href="#core.classes.Research.Research.merge_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that will try to merge profiles.</p>
+<p>Merge if values do not produce conflicts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lst_profile</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><a class="reference internal" href="#core.classes.Profile.Profile" title="core.classes.Profile.Profile"><em>Profile</em></a><em>]</em><em>, </em><em>optional</em>) – The list of all profiles, defaults to [].</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The merged profile or None if it didn’t work.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#core.classes.Profile.Profile" title="core.classes.Profile.Profile">Profile</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Research.Research.remove_profile">
+<span class="sig-name descname"><span class="pre">remove_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#core.classes.Profile.Profile" title="core.classes.Profile.Profile"><span class="pre">classes.Profile.Profile</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Research.Research.remove_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that removes a profile and deletes it from the memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>profile</strong> (<a class="reference internal" href="#core.classes.Profile.Profile" title="core.classes.Profile.Profile"><em>Profile</em></a>) – The profile to remove.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.classes.Research.Research.set_profiles_visibility">
+<span class="sig-name descname"><span class="pre">set_profiles_visibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profile_visibility</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="(in Python v3.9)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.classes.Research.Research.set_profiles_visibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter of profiles visibility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>profile_visibility</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – The new visibility setting.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">core.classes package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#module-core.classes.Profile">core.classes.Profile module</a></li>
+<li><a class="reference internal" href="#module-core.classes.Research">core.classes.Research module</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="core.api.html"
+                          title="previous chapter">core.api package</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="core.classes.account.html"
+                          title="next chapter">core.classes.account package</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/core.classes.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="core.classes.account.html" title="core.classes.account package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="core.api.html" title="core.api package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">OPSE-Framework 1.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" >core package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">core.classes package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, OPSE Developers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

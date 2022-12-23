@@ -1,0 +1,21 @@
+core.tools.opse\-records\-plugin package
+========================================
+
+Submodules
+----------
+
+core.tools.opse\-records\-plugin.Records module
+-----------------------------------------------
+
+.. automodule:: core.tools.opse-records-plugin.Records
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: core.tools.opse-records-plugin
+   :members:
+   :undoc-members:
+   :show-inheritance:
