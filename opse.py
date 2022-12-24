@@ -6,6 +6,14 @@ VERSION = "1.0.0"
 import argparse
 import textwrap
 import os
+from datetime import datetime
+
+def verify_date(input_date):
+  try:
+    datetime.strptime(input_date, '%Y%m%d')
+    return True
+  except ValueError:
+    return False
 
 def args_parser():
     # Creating main argument parser
@@ -31,14 +39,14 @@ def args_parser():
 
     # Creating parser for cli mode
     parser_cli = sub_parsers.add_parser('cli', help='Launch the CLI') 
+    parser_cli.add_argument('-f', '--firstname', type=str, help='Specify target\'s firstname')
+    parser_cli.add_argument('-l', '--lastname', type=str, help='Specify target\'s lastname')
+    parser_cli.add_argument('-m', '--middlename', type=str, help='Specify target\'s middlename')
+    parser_cli.add_argument('-g', '--gender',type=str, choices=['female', 'male'],help='Specify target\'s gender.')
     parser_cli.add_argument('-a', '--age', type=str, help='Specify target\'s age')
     parser_cli.add_argument('-b', '--birthdate', type=str, help='Specify target\'s date of birth. Format: <YYYYMMDD>')
     parser_cli.add_argument('-d', '--address', type=str, help='Specify target\'s address')
     parser_cli.add_argument('-e', '--email', type=str, help='Specify target\'s email address')
-    parser_cli.add_argument('-f', '--firstname', type=str, help='Specify target\'s firstname')
-    parser_cli.add_argument('-g', '--gender', type=str, help='Specify target\'s gender. Possible values: <male|female>')
-    parser_cli.add_argument('-l', '--lastname', type=str, help='Specify target\'s lastname')
-    parser_cli.add_argument('-m', '--middlename', type=str, help='Specify target\'s middlename')
     parser_cli.add_argument('-p', '--phone', type=str, help='Specify target\'s phone number. Format: <+33XXXXXXXXX>')
     parser_cli.add_argument('-u', '--username', type=str, help='Specify target\'s username')
 
@@ -59,28 +67,32 @@ def launch_OPSE(args):
         # CLI mode
         if args.mode == "cli":
             OPSE_CMD = "./core/Opse.py -R"
-            
+
             if args.debug:
                 OPSE_CMD += " -D"
             if args.strict:
                 OPSE_CMD += " -S"
 
-            if args.age:
-                OPSE_CMD += f" --age {args.age}"
-            if args.birthdate:
-                OPSE_CMD += f" --birthdate {args.birthdate}"
-            if args.address:
-                OPSE_CMD += f" --address {args.address}"
-            if args.email:
-                OPSE_CMD += f" --email {args.email}"
             if args.firstname:
                 OPSE_CMD += f" --firstname {args.firstname}"
-            if args.gender:
-                OPSE_CMD += f" --gender {args.gender}"
             if args.lastname:
                 OPSE_CMD += f" --lastname {args.lastname}"
             if args.middlename:
                 OPSE_CMD += f" --middlename {args.middlename}"
+            if args.gender:
+                OPSE_CMD += f" --gender {args.gender}"
+            if args.age:
+                OPSE_CMD += f" --age {args.age}"
+            if args.birthdate:
+                if verify_date(args.birthdate):
+                    OPSE_CMD += f" --birthdate {args.birthdate}"
+                else:
+                    print("[*] ERROR: Please provide a valid date. Format: <YYYYMMDD>")
+                    exit()
+            if args.address:
+                OPSE_CMD += f" --address {args.address}"
+            if args.email:
+                OPSE_CMD += f" --email {args.email}"
             if args.phone:
                 OPSE_CMD += f" --phone {args.phone}"
             if args.username:
