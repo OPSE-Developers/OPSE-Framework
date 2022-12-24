@@ -14,5 +14,5 @@
 	path = core/tools/OPSE-Records-Plugin
 	url = https://github.com/OPSE-Developers/OPSE-Records-Plugin.git
 [submodule "Twitter"]
-	path = core/tools/OPSE-InstantUsername-Plugin
+	path = core/tools/OPSE-Twitter-Plugin
 	url = https://github.com/OPSE-Developers/OPSE-Twitter-Plugin.git
