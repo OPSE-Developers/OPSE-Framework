@@ -42,60 +42,75 @@ git clone --recurse-submodules https://github.com/OPSE-Developers/OPSE-Framework
 git clone https://github.com/OPSE-Developers/OPSE-Gui.git
 ```
 
-Once you got the repositories, you have to launch the installation script `install.sh`.
+Once you got the repositories, you have to install OPSE requirements.
 
-The original script will install Linux requirements, get Docker repository and install Docker.
-
-```
-cd opse-framework
-bash install.sh
+```bash
+python3 -m pip install -r requirements.txt
 ```
 
-If you want to use OPSE in your local environment (and not in a Docker container), just add the option `--local`.
+Once requirements are installed you can launch `./opse.py` launcher.
+
+## Plugins
+
+| Plugin Name                 | Link                                                            | State    |
+| --------------------------- | --------------------------------------------------------------- | -------- |
+| OPSE-Death-Plugin           | https://github.com/OPSE-Developers/OPSE-Death-Plugin            | OK ✅    |
+| OPSE-Facebook-Plugin        | https://github.com/OPSE-Developers/OPSE-Facebook-Plugin         | OK ✅    |
+| OPSE-Holehe-Plugin          | https://github.com/OPSE-Developers/OPSE-Holehe-Plugin           | OK ✅    |
+| OPSE-Records-Plugin         | https://github.com/OPSE-Developers/OPSE-Records-Plugin          | OK ✅    |
+| OPSE-Twitter-Plugin         | https://github.com/OPSE-Developers/OPSE-Twitter-Plugin          | OK ✅    |
+| OPSE-InstantUsername-Plugin | https://github.com/OPSE-Developers/OPSE-InstantUsername-Plugin  | OK ✅    |
 
 ## Start OPSE
 
-Once the installation is complete, you can start OPSE.
+```bash
+./opse.py <cli|gui> <options>
+```
 
 ## Usage
 
 ```
-SYNOPSIS
-    opse.sh <subcommand> [OPTIONS...]
+usage: Opse.py [-h] [-D] [-V] [-S] {cli,gui} ...
 
- DESCRIPTION
-    Simple commands to deploy OPSE containers.
+Simple commands to deploy OPSE containers.
 
- SUBCOMMANDS
-    cli [OPTIONS...]        Launch the CLI
-    gui [OPTIONS...]        Launch the GUI
-    help <CMD|OPT>          Print a specific help about CMD or OPT
+positional arguments:
+  {cli,gui}      OPSE mode
+    cli          Launch the CLI
+    gui          Launch the GUI
 
- CLI SUBCOMMAND OPTIONS
-    -a, --age string        Specify target's age
-    -b, --birthdate string  Specify target's date of birth. Format: <YYYYMMDD>
-    -d, --address string    Specify target's address
-    -e, --email string      Specify target's email address
-    -f, --firstname string  Specify target's firstname
-    -g, --gender string     Specify target's gender. Possible values: <male|female>
-    -l, --lastname string   Specify target's lastname
-    -n, --name string       Specify target's name
-    -p, --phone string      Specify target's phone number. Format: <+33XXXXXXXXX>
-    -u, --username string   Specify target's username
+optional arguments:
+  -h, --help     show this help message and exit
+  -D, --debug    Enable debug mode
+  -V, --version  Print script version and exit
+  -S, --strict   Strict mode, input are case sensitive
 
- SCRIPT OPTIONS
-    -C, --clear             Clear Docker containers
-    -D, --debug=TRUE|FALSE  Enable debug
-    -S, --strict=TRUE|FALSE Enable strict mode
-    -h, --help              Print this help and exit
-    -v, --version           Print script version and exit
+Implementation:
+  Version      Opse.py 1.0.0
+  Authors      OPSE Developpers
+  Copyright    Copyright (c) OPSE 2021-2022
+  License      OPSE License
+```
 
+### CLI Usage
 
- IMPLEMENTATION
-    Version                 opse.sh 0.0.0
-    Authors                 OPSE Developpers
-    Copyright               Copyright (c) OPSE 2021-2022
-    License                 OPSE License
+```
+usage: Opse.py cli [-h] [-a AGE] [-b BIRTHDATE] [-d ADDRESS] [-e EMAIL] [-f FIRSTNAME] [-g GENDER] [-l LASTNAME] 
+                   [-m MIDDLENAME] [-p PHONE] [-u USERNAME]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -a AGE, --age AGE     Specify target's age
+  -b BIRTHDATE, --birthdate BIRTHDATE    Specify target's date of birth. Format: <YYYYMMDD>
+  -d ADDRESS, --address ADDRESS          Specify target's address
+  -e EMAIL, --email EMAIL                Specify target's email address
+  -f FIRSTNAME, --firstname FIRSTNAME    Specify target's firstname
+  -g GENDER, --gender GENDER             Specify target's gender. Possible values: <male|female>
+  -l LASTNAME, --lastname LASTNAME       Specify target's lastname
+  -m MIDDLENAME, --middlename MIDDLENAME Specify target's middlename
+  -p PHONE, --phone PHONE                Specify target's phone number. Format: <+33XXXXXXXXX>
+  -u USERNAME, --username USERNAME       Specify target's username
+
 ```
 
 ## License
