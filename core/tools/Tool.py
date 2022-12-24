@@ -240,5 +240,4 @@ class Tool(Task, ABC):
                 config[tool_name]["deprecated"] = False
                 # print_debug("CONFIG ERROR : " + tool_name + ">deprecated is not set as an boolean. Value reset to False")
 
-        print(config)
         return config
