@@ -105,13 +105,11 @@ class Api(Task):
 
                 if "firstname" in data:
                     firstname = data["firstname"]
-                    nbData_get += 1
                 else:
                     firstname = None
 
                 if "middlename" in data:
-                    middlename = data["middlename"]
-                    nbData_get += 1
+                    middlename = data["middlename"].split(",")
                     if not isinstance(middlename,(list, NoneType)):
                         middlename = [middlename]
                 else:
@@ -119,87 +117,63 @@ class Api(Task):
 
                 if "lastname" in data:
                     lastname = data["lastname"]
-                    nbData_get += 1
                 else:
                     lastname = None
 
                 if "gender" in data:
                     gender = data["gender"]
-                    nbData_get += 1
                 else:
                     gender = None
 
                 if "birthdate" in data:
                     birthdate = data["birthdate"]
-                    nbData_get += 1
                 else:
                     birthdate = None
 
                 if "age" in data:
                     age = data["age"]
-                    nbData_get += 1
                 else:
                     age = None
 
                 if "address" in data:
                     address = data["address"]
-                    nbData_get += 1
                 else:
                     address = None
 
                 if "phone" in data:
-                    phone = data["phone"]
-                    nbData_get += 1
+                    phone = data["phone"].split(",")
                     if not isinstance(phone,(list, NoneType)):
                         phone = [phone]
                 else:
                     phone = None
 
                 if "email" in data:
-                    email = data["email"]
+                    email = data["email"].split(",")
                     if not isinstance(email,(list, NoneType)):
                         email = [email]
                 else:
                     email = None
 
                 if "username" in data:
-                    username = data["username"]
-                    nbData_get += 1
+                    username = data["username"].split(",")
                     if not isinstance(username,(list, NoneType)):
                         username = [username]
                 else:
                     username = None
 
-                # if any([
-                #     firstname,
-                #     middlename,
-                #     lastname,
-                #     gender,
-                #     birthdate,
-                #     age,
-                #     address,
-                #     phone,
-                #     email,
-                #     username,
-                # ]):
-                #     return self.send_error_message("Impossible de lancer une recherche sans information", 400)
-
-                if nbData_get <= 0:
+                if any([
+                    firstname,
+                    middlename,
+                    lastname,
+                    gender,
+                    birthdate,
+                    age,
+                    address,
+                    phone,
+                    email,
+                    username,
+                ]):
                     return self.send_error_message("Impossible de lancer une recherche sans information", 400)
-
-                # print_debug([
-                #     firstname,
-                #     middlename,
-                #     lastname,
-                #     gender,
-                #     birthdate,
-                #     age,
-                #     address,
-                #     phone,
-                #     email,
-                #     username,
-                #     False,
-                # ])
 
                 research = make_research(
                     firstname,
