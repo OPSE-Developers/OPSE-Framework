@@ -1,0 +1,157 @@
+/* set var */
+:root {
+    font-family: sans-serif;
+    --bg: #050505;
+    --header: #151515;
+    --header-height: 3.5rem;
+    --header-title-font-size: 2.5rem; 
+    --header--font-color: #999;
+    --form-element: #151515;
+    outline: none;
+}
+
+/*################################*/
+/* --------- START BODY --------- */
+/*################################*/
+
+body {
+    background-color: var(--bg);
+}
+
+.div-body {
+    border: 100px; /* Add a 20px white border to the form */
+    padding: 100px; /* Add some padding inside the form */
+    border-radius: 10rem;
+    /* width: 20rem; */
+    margin: 0 auto;
+    min-height: 4rem;
+    width: 30%;
+}
+
+h1 {
+    color: white
+}
+
+/* Define the style for the form container */
+.div-container {
+    display: flex; /* Display the form container as a flex container */
+    width: 100%; /* Set the width of the container to 100% */
+    background-color: var(--bg);/* Set the background color to gray */
+}
+
+/* Define the style for each form column */
+.div-column {
+    width: 50%; /* Set the width of each column to 50% */
+    padding: 20px; /* Add some padding around the contents of the column */
+    /* background-color: var(--bg); */
+    background-color: var(--bg);
+}
+
+/* Define the style for the input blocks */
+.input-block {
+    display: flex; /* Display the input block as a flex container */
+    align-items: center; /* Align the contents of the input block vertically */
+    margin-bottom: 20px; /* Add some margin below the input block */
+    width: 100%; /* Set the width of the input block to 100% */
+    height: 40px; /* Set the height of the input block to 40px */
+    border: none; /* Remove the border */
+    background-color: var(--form-element); /* Set the background color to transparent */
+    position: relative; /* Set the position of the input block to relative */
+}
+
+.input-block:focus {
+    border: 1px solid black;
+    transition: border /* Add a 1 second delay before the transition starts */
+}
+
+/* Style the label element */
+.input-block label {
+    /* margin-right: 10px;  */
+    white-space: nowrap; 
+    position: absolute;
+    /* padding-left: 10px; */
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center; /* centers the element in the vertical axis */
+    justify-content: center; /* centers the element in the horizontal axis */
+    height: 100%; /* takes the full height of the div */
+}
+
+input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color:none;
+    /* Not removed via appearance */
+    margin: 10px;
+    
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid white;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em white;
+}  
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid white;
+    outline-offset: max(2px, 0.15em);
+}
+
+.div-button-search{
+    width: 75%;
+    margin: 0 auto;
+}
+.button-options {
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+}
+
+.button-options:hover {
+    opacity: .75;
+}

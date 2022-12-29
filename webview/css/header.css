@@ -1,0 +1,103 @@
+/* set var */
+:root {
+    font-family: sans-serif;
+    --brand: #e00;
+    --bg: #050505;
+    --header: #151515;
+    --header-height: 3.5rem;
+    --header-title-font-size: 2.5rem; 
+    --header--font-color: #999;
+    --form-element: #151515;
+    outline: none;
+}
+
+/*################################*/
+/* -------- BEGIN HEADER -------- */
+/*################################*/
+
+header {
+    width: 100%;
+    z-index: 150;
+    background-color: var(--header);
+    -webkit-transition: box-shadow 0.3s ease;
+    -moz-transition: box-shadow 0.3s ease;
+    -o-transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;
+}
+
+#header-desktop {
+    display: block;
+    /* position: fixed; */
+    height: var(--header-height);
+    line-height: var(--header-height);
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#header-desktop .header-wrapper {
+    padding: 0 3rem 0 10vh;
+}
+
+.header-title {
+    /* font-family: var(--header-title-font-family); */
+    font-weight: bold;
+    margin-right: .5rem;
+    min-width: 10%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-flex: 10;
+    flex: 10;
+}
+
+.header-wrapper a {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.header-wrapper a:hover {
+    color: white;
+}
+
+#header-desktop .header-wrapper .header-title {
+    font-size: var(--header-title-font-size);
+}
+
+#header-desktop .header-wrapper .menu {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#header-desktop .header-wrapper .menu .menu-inner {
+    float: right;
+}
+
+.selected {
+  color: white;
+}
+
+#header-desktop .header-wrapper .menu .menu-item {
+    margin: 0 .5rem;
+}
+
+.menu .menu-item {
+    position: relative;
+}
+
+a, a::before, a::after {
+    color: var(--header--font-color);
+}
+
+.menu-inner a {
+    font-size: 1.5rem;
+}
+
+/*################################*/
+/* --------- END HEADER --------- */
+/*################################*/

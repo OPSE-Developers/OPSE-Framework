@@ -1,0 +1,192 @@
+/* set var */
+:root {
+    font-family: sans-serif;
+    --brand: #e00;
+    --bg: #050505;
+    --header: #151515;
+    --header-height: 3.5rem;
+    --header-title-font-size: 2.5rem; 
+    --header--font-color: #999;
+    --form-element: #151515;
+    outline: none;
+}
+
+/*################################*/
+/* --------- START BODY --------- */
+/*################################*/
+
+body {
+    background-color: var(--bg);
+}
+
+/*############# BUTTONS ############*/
+
+.button-form {
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.div-button-search{
+    width: 75%;
+    margin: 0 auto;
+}
+.button-search {
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+}
+
+.button-form:hover,
+.button-search:hover {
+    opacity: .75;
+}
+
+/*############# FORM ############*/
+
+/* Define the style for the forms */
+form {
+    border: 100px; /* Add a 20px white border to the form */
+    padding: 100px; /* Add some padding inside the form */
+    border-radius: 10rem;
+    /* width: 20rem; */
+    margin: 0 auto;
+    min-height: 4rem;
+}
+
+/* Define the style for the form container */
+.form-container {
+    display: flex; /* Display the form container as a flex container */
+    width: 100%; /* Set the width of the container to 100% */
+    background-color: var(--bg);/* Set the background color to gray */
+}
+
+/* Define the style for each form column */
+.form-column {
+    width: 50%; /* Set the width of each column to 50% */
+    padding: 20px; /* Add some padding around the contents of the column */
+    background-color: var(--bg);
+}
+
+/* Define the style for the input blocks */
+.input-block {
+    display: flex; /* Display the input block as a flex container */
+    align-items: center; /* Align the contents of the input block vertically */
+    margin-bottom: 20px; /* Add some margin below the input block */
+    width: 100%; /* Set the width of the input block to 100% */
+    height: 40px; /* Set the height of the input block to 40px */
+    border: none; /* Remove the border */
+    background-color: transparent; /* Set the background color to transparent */
+    position: relative; /* Set the position of the input block to relative */
+}
+
+/* Add a red border to the input blocks when they are focused */
+.input-block input[type="text"]:focus,
+.input-block input[type="number"]:focus,
+.input-block input[type="tel"]:focus,
+.input-block input[type="date"]:focus,
+.input-block input[type="email"]:focus {
+    border: 1px solid white;
+    transition: border /* Add a 1 second delay before the transition starts */
+}
+
+/* Style the input element */
+.input-block input[type="text"],input[type="number"],
+input[type="tel"], input[type="date"],input[type="email"] {
+    width: 100%; /* Set the width of the input element to 100% */
+    height: 100%; /* Set the height of the input element to 100% */
+    border: none; /* Remove the border */
+    background-color: var(--form-element); /* Set the background color to transparent */
+    color: white; /* Set the text color to white */
+    font-size: 16px; /* Set the font size to 16px */
+    outline: none; /* Remove the outline */
+    text-indent: 0.5rem;
+}
+
+/* Style the label element */
+.input-block label {
+    margin-right: 10px; /* Add some margin to the right of the label element */
+    white-space: nowrap; /* Prevent the label text from wrapping */
+    position: absolute; /* Set the position of the label element to absolute */
+    top: -20px; /* Set the top position of the label element to -20px */
+    left: 0; /* Set the left position of the label element to 0 */
+    font-size: 12px; /* Set the font size to 12px */
+    pointer-events: none; /* Prevent the label element from intercepting pointer events */
+}
+
+/* Style the placeholder text */
+.input-block input::placeholder {
+    color: var(--header--font-color); /* Set the text color to gray */
+}
+.input-block #country::placeholder {
+    color: var(--header--font-color); /* Set the text color to gray */
+}
+
+select {
+    padding:3px;
+    height: 40px;
+    width: 100%;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    font-size: 16px;
+    background: var(--form-element);
+    color: white;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    text-indent: 0.3rem;
+}
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+}

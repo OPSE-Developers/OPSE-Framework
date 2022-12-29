@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OPSE - Search</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="OPSE input data form">
+    <meta name="viewport"    content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./js/functions.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/options.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="./css/header.css" media="screen" />
+</head>
+
+<header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="./index.html" title="OPSE">OPSE</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner">
+                <a class="menu-item" href="./search.html"> Search </a>
+                <a class="menu-item selected" href="./options.html"> Options </a>
+                <a class="menu-item" href="./choice.html"> Choice </a>
+                <a class="menu-item" href="./results.html"> Results </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<body>
+
+    <div class="div-body">
+    
+        <h1>Choose what you want to see :</h1>
+        
+        <div class="div-container">
+            <div class="div-column">
+                
+                <!-- Firstname block -->
+                <div class="input-block" id="input-firstname">
+                    <label for="check_firstname">First Names</label>
+                    <input type="checkbox" id="check_firstname" name="firstname" checked>
+                </div>
+                
+                <!-- Lastname block -->
+                <div class="input-block" id="input-lastname">
+                    <label for="check_lastname">Last Names</label>
+                    <input type="checkbox" id="check_lastname" name="lastname" checked>
+                </div>
+                
+                <!-- Middlename block -->
+                <div class="input-block" id="input-middlename">
+                    <label for="check_middlename">Middlenames</label>
+                    <input type="checkbox" id="check_middlename" name="middlename" checked>
+                </div>
+                <!-- Username block -->
+                <div class="input-block" id="input-username">
+                    <label for="check_username">Usernames</label>
+                    <input type="checkbox" id="check_username" name="username" checked>
+                </div>
+                <!-- Gender block -->
+                <div class="input-block" id="input-gender">
+                    <label for="check_gender">Gender</label>
+                    <input type="checkbox" id="check_gender" name="gender" checked>
+                </div>
+                <!-- Birthdate block -->
+                <div class="input-block" id="input-birthdate">
+                    <label for="check_birthdate">Birth date</label>
+                    <input type="checkbox" id="check_birthdate" name="birthdate" checked>
+                </div>
+                <!-- Deathdate block -->
+                <div class="input-block" id="input-deathdate">
+                    <label for="check_deathdate">Death date</label>
+                    <input type="checkbox" id="check_deathdate" name="deathdate" checked>
+                </div>
+                <!-- Age block -->
+                <div class="input-block" id="input-age">
+                    <label for="check_age">Age</label>
+                    <input type="checkbox" id="check_age" name="age" checked>
+                </div>
+                
+            </div>
+            
+            <div class="div-column">
+                
+                <!-- Phone block -->
+                <div class="input-block" id="input-phone">
+                    <label for="check_phone"> Phone numbers</label>
+                    <input type="checkbox" id="check_phone" name="phone" checked>
+                </div>
+                
+                <!-- Accounts block -->
+                <div class="input-block" id="input-accounts">
+                    <label for="check_accounts">Accounts</label>
+                    <input type="checkbox" id="check_accounts" name="accounts" checked>
+                </div>
+                
+                <!-- Pictures block -->
+                <div class="input-block" id="input-pictures">
+                    <label for="check_pictures">Pictures</label>
+                    <input type="checkbox" id="check_pictures" name="pictures" checked>
+                </div>
+                
+                <!-- IP block -->
+                <div class="input-block" id="input-ip">
+                    <label for="check_ip">IP Addresses</label>
+                    <input type="checkbox" id="check_ip" name="ip" checked>
+                </div>
+                
+                <!-- Address block -->
+                <div class="input-block" id="input-address">
+                    <label for="check_address">Addresses</label>
+                    <input type="checkbox" id="check_address" name="address" checked>
+                </div>
+                
+                <!-- Location block -->
+                <div class="input-block" id="input-location">
+                    <label for="check_location">Locations</label>
+                    <input type="checkbox" id="check_location" name="location" checked>
+                </div>
+                
+                <!-- Organization block -->
+                <div class="input-block" id="input-organization">
+                    <label for="check_organization">Organizations</label>
+                    <input type="checkbox" id="check_organization" name="organization" checked>
+                </div>
+                
+                <!-- Political Orientations block -->
+                <div class="input-block" id="input-political_orientations">
+                    <label for="check_political_orientations">Political orientations</label>
+                    <input type="checkbox" id="check_political_orientations" name="political_orientations" checked>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="div-button-search">
+            <button type="button" class="button-options" id="button_options" onclick='send_options()'>VALIDATE</button>
+        </div>
+
+    </div>
+    
+</body>
+</html>
