@@ -6,6 +6,7 @@ VERSION = "1.0.0"
 import argparse
 import textwrap
 import os
+import sys
 from datetime import datetime
 
 def verify_date(input_date):
@@ -14,6 +15,12 @@ def verify_date(input_date):
     return True
   except ValueError:
     return False
+
+def check_py_version():
+    if not sys.version_info >= (3,8):
+        print("Python 3.8 or higher is required.")
+        print("You are using Python {}.{}.".format(sys.version_info.major, sys.version_info.minor))
+        sys.exit(1)
 
 def args_parser():
     # Creating main argument parser
@@ -41,14 +48,14 @@ def args_parser():
     parser_cli = sub_parsers.add_parser('cli', help='Launch the CLI') 
     parser_cli.add_argument('-f', '--firstname', type=str, help='Specify target\'s firstname')
     parser_cli.add_argument('-l', '--lastname', type=str, help='Specify target\'s lastname')
-    parser_cli.add_argument('-m', '--middlename', type=str, help='Specify target\'s middlename')
     parser_cli.add_argument('-g', '--gender',type=str, choices=['female', 'male'],help='Specify target\'s gender.')
     parser_cli.add_argument('-a', '--age', type=str, help='Specify target\'s age')
     parser_cli.add_argument('-b', '--birthdate', type=str, help='Specify target\'s date of birth. Format: <YYYYMMDD>')
     parser_cli.add_argument('-d', '--address', type=str, help='Specify target\'s address')
-    parser_cli.add_argument('-e', '--email', type=str, help='Specify target\'s email address')
-    parser_cli.add_argument('-p', '--phone', type=str, help='Specify target\'s phone number. Format: <+33XXXXXXXXX>')
-    parser_cli.add_argument('-u', '--username', type=str, help='Specify target\'s username')
+    parser_cli.add_argument('-m', '--middlename', type=str, help='Specify target\'s middlename', nargs="+")
+    parser_cli.add_argument('-e', '--email', type=str, help='Specify target\'s email address', nargs="+")
+    parser_cli.add_argument('-p', '--phone', type=str, help='Specify target\'s phone number. Format: <+33XXXXXXXXX>', nargs="+")
+    parser_cli.add_argument('-u', '--username', type=str, help='Specify target\'s username', nargs="+")
 
     # Creating parser for gui mode
     parser_gui = sub_parsers.add_parser('gui', help='Launch the GUI')
@@ -64,21 +71,34 @@ def launch_OPSE(args):
 
     #----- Args control -----
     try:
+
+        # Determine OS
+        OS_NAME = sys.platform
+        if OS_NAME == "linux":
+            OPSE_CMD = "python3 core/Opse.py"
+        elif OS_NAME == "win32":
+            OPSE_CMD = "python .\core\Opse.py"
+        elif OS_NAME == "darwin":
+            OPSE_CMD = "python3 core/Opse.py"
+        else:
+            print("Exiting... Wrong OS !")
+            exit()
+
         # CLI mode
         if args.mode == "cli":
-            OPSE_CMD = "./core/Opse.py -R"
-
+            OPSE_CMD += " -R" # research launch option 
+            
+            # Opse.py specific args
             if args.debug:
-                OPSE_CMD += " -D"
+                OPSE_CMD += " -D" # research debug option 
             if args.strict:
-                OPSE_CMD += " -S"
+                OPSE_CMD += " -S" # research strict option 
 
+            # mono input args
             if args.firstname:
                 OPSE_CMD += f" --firstname {args.firstname}"
             if args.lastname:
                 OPSE_CMD += f" --lastname {args.lastname}"
-            if args.middlename:
-                OPSE_CMD += f" --middlename {args.middlename}"
             if args.gender:
                 OPSE_CMD += f" --gender {args.gender}"
             if args.age:
@@ -91,18 +111,30 @@ def launch_OPSE(args):
                     exit()
             if args.address:
                 OPSE_CMD += f" --address {args.address}"
+            
+            # multi input args
+            if args.middlename:
+                OPSE_CMD += " --middlename"
+                for middlename in args.middlename:
+                    OPSE_CMD += f" {middlename}"
             if args.email:
-                OPSE_CMD += f" --email {args.email}"
+                OPSE_CMD += f" --email"
+                for email in args.email:
+                    OPSE_CMD += f" {email}"
             if args.phone:
-                OPSE_CMD += f" --phone {args.phone}"
+                OPSE_CMD += f" --phone"
+                for phone in args.phone:
+                    OPSE_CMD += f" {phone}"
             if args.username:
-                OPSE_CMD += f" --username {args.username}"
+                OPSE_CMD += f" --username"
+                for username in args.username:
+                    OPSE_CMD += f" {username}"
 
             os.system(OPSE_CMD)
 
         # GUI mode
         elif args.mode == "gui":
-            OPSE_CMD = "./core/Opse.py -A"
+            OPSE_CMD += " -A"
 
             if args.debug:
                 OPSE_CMD += " -D"
@@ -116,5 +148,8 @@ def launch_OPSE(args):
         exit()
 
 if __name__ == '__main__':
+    # check if python version is >=3.8
+    check_py_version()
+
     args = args_parser()
     launch_OPSE(args)
