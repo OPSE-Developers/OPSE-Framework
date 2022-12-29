@@ -29,10 +29,39 @@
 
 <body>
     
-    <div class="results" id="div_choice"></div>
+    <div class="div-choice">
+        <button class="div-bt-choice" onclick="mergeSelection()">MERGE SELECTION</button>; 
+        <button class="div-bt-choice" onclick="deleteSelection()">DELETE SELECTION</button>; 
+    </div>
+    
+    <div class="results" id="div_choice">
+        <div class="result">
+            <button class="div-bt-profile" type="button" onclick="show_results('e78c8e5217c24aadbec9fa482c8c0366')">
+                <p class="profile-title">Profile 0</p>
+                <center><img src="https://pngimg.com/uploads/simpsons/simpsons_PNG86.png" width="200em" height="auto"></center>
+                <p>john Doe, 1 emails, 1 Website WebsiteWebsiteWebsiteWebsiteWebsiteWebsiteWebsite</p>
+            </button><br>
+            <label class="bt-select">
+                <input type="checkbox" name="checkbox" id="1"/>
+                SELECT
+            </label>
+        </div>
+    </div>
     <script>display_profiles("div_choice");</script>
     
 </body>
 
 </html>
 
+<!-- TEST DATA -->
+<!-- <div class="result">
+    <button class="div-bt-profile" type="button" onclick="show_results('e78c8e5217c24aadbec9fa482c8c0366')">
+        <p class="profile-title">Profile 0</p>
+        <center><img src="https://pngimg.com/uploads/simpsons/simpsons_PNG86.png" width="200em" height="auto"></center>
+        <p>john Doe, 1 emails, 1 Website WebsiteWebsiteWebsiteWebsiteWebsiteWebsiteWebsite</p>
+    </button><br>
+    <label class="bt-select">
+        <input type="checkbox" name="checkbox" id="1"/>
+        SELECT
+    </label>
+</div> -->

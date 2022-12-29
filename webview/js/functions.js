@@ -301,17 +301,49 @@ function add_profile_resume(id_div, index, profile_id, picture, sumary) {
 	data += '<button class="div-bt-profile" type="button" onclick="show_results(\'' + profile_id + '\')">';
 	data += '<p class="profile-title">Profile ' + index + '</p>';
 	data += '<center><img src="' + picture + '"width="200em" height="auto"></center>';
-	data += '<p>' + sumary + '</p>';
+	data += '<p>' + summary + '</p>';
 	data += '</button><br>';
-	data += '<button class="bt-delete" onclick="delete_profile(\'' + profile_id + '\')">DELETE</button><br>';
-	data += '</div>'
+	data += '<label class="bt-select">';
+	data += '<input type="checkbox" name="checkbox" id="' + profile_id + '"/>SELECT'
+	data += '</label></div>'
 
 	document.getElementById(id_div).innerHTML += data;
 }
 
-// Function use to delete unwanted profiles
-var url_api_delete = "http://127.0.0.1:6060/remove_profile";
-function delete_profile(pid) {
+//------------------------------------------------------------
+
+function get_checked() {
+	const checkboxIds = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(checkbox => checkbox.id);
+	return checkboxIds;
+}
+
+var url_api_merge = "http://" + UI_IP + ":6060/merge";
+function mergeSelection() {
+	fetch(url_api_merge, {
+		method: "POST",
+
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+
+		body: JSON.stringify({
+			uuid: cookie_parse("uuid"),
+			research_id: cookie_parse("research_id"),
+			profile_id: get_checked()
+		})
+	})
+		.then(res => {
+			res.json().then(value => {
+				window.location.href = "./choice.html";
+			});
+		})
+		.catch(error => { console.log("Error fetch : " + error) });
+}
+
+
+var url_api_delete = "http://" + UI_IP + ":6060/remove_profile";
+function deleteSelection() {
 	fetch(url_api_delete, {
 		method: "DELETE",
 
@@ -323,7 +355,7 @@ function delete_profile(pid) {
 		body: JSON.stringify({
 			uuid: cookie_parse("uuid"),
 			research_id: cookie_parse("research_id"),
-			profile_id: pid
+			lst_profile: get_checked()
 		})
 	})
 		.then(res => {
@@ -333,3 +365,6 @@ function delete_profile(pid) {
 		})
 		.catch(error => { console.log("Error fetch : " + error) });
 }
+
+// ############## RESULT ############## //
+
