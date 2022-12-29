@@ -8,6 +8,7 @@ import textwrap
 import os
 import sys
 from datetime import datetime
+import webbrowser
 
 def verify_date(input_date):
   try:
@@ -22,15 +23,33 @@ def check_py_version():
         print("You are using Python {}.{}.".format(sys.version_info.major, sys.version_info.minor))
         sys.exit(1)
 
+def check_args(parser, args):
+    if not args.gui:
+        if not any([
+            args.firstname,
+            args.middlename,
+            args.lastname,
+            args.gender,
+            args.birthdate,
+            args.age,
+            args.address,
+            args.phone,
+            args.email,
+            args.username,
+        ]):
+            print("\nERROR: Please enter at least one target's information ! See usage above.")
+            parser.print_help(sys.stderr)
+            sys.exit(1)
+
 def args_parser():
     # Creating main argument parser
     parser = argparse.ArgumentParser(
-        prog='Opse.py', 
+        prog='opse.py', 
         formatter_class=argparse.RawDescriptionHelpFormatter,
         description='Simple commands to deploy OPSE containers.', 
         epilog=textwrap.dedent(f'''\
         Implementation:
-          Version      Opse.py {VERSION}
+          Version      opse.py {VERSION}
           Authors      OPSE Developpers
           Copyright    Copyright (c) OPSE 2021-2022
           License      OPSE License  
@@ -40,27 +59,21 @@ def args_parser():
     parser.add_argument('-D', '--debug', action='store_true', help='Enable debug mode')
     parser.add_argument('-V', '--version', action='store_true', help='Print script version and exit')
     parser.add_argument('-S', '--strict', action='store_true', help='Strict mode, input are case sensitive')
+    parser.add_argument('-G', '--gui', action='store_true', help='Launch OPSE in GUI mode')
 
-    # Creating sub argument parser
-    sub_parsers = parser.add_subparsers(help='OPSE mode', required=True, dest='mode')
-
-    # Creating parser for cli mode
-    parser_cli = sub_parsers.add_parser('cli', help='Launch the CLI') 
-    parser_cli.add_argument('-f', '--firstname', type=str, help='Specify target\'s firstname')
-    parser_cli.add_argument('-l', '--lastname', type=str, help='Specify target\'s lastname')
-    parser_cli.add_argument('-g', '--gender',type=str, choices=['female', 'male'],help='Specify target\'s gender.')
-    parser_cli.add_argument('-a', '--age', type=str, help='Specify target\'s age')
-    parser_cli.add_argument('-b', '--birthdate', type=str, help='Specify target\'s date of birth. Format: <YYYYMMDD>')
-    parser_cli.add_argument('-d', '--address', type=str, help='Specify target\'s address')
-    parser_cli.add_argument('-m', '--middlename', type=str, help='Specify target\'s middlename', nargs="+")
-    parser_cli.add_argument('-e', '--email', type=str, help='Specify target\'s email address', nargs="+")
-    parser_cli.add_argument('-p', '--phone', type=str, help='Specify target\'s phone number. Format: <+33XXXXXXXXX>', nargs="+")
-    parser_cli.add_argument('-u', '--username', type=str, help='Specify target\'s username', nargs="+")
-
-    # Creating parser for gui mode
-    parser_gui = sub_parsers.add_parser('gui', help='Launch the GUI')
+    parser.add_argument('-f', '--firstname', type=str, help='Specify target\'s firstname')
+    parser.add_argument('-l', '--lastname', type=str, help='Specify target\'s lastname')
+    parser.add_argument('-g', '--gender',type=str, choices=['female', 'male'],help='Specify target\'s gender.')
+    parser.add_argument('-a', '--age', type=str, help='Specify target\'s age')
+    parser.add_argument('-b', '--birthdate', type=str, help='Specify target\'s date of birth. Format: <YYYYMMDD>')
+    parser.add_argument('-d', '--address', type=str, help='Specify target\'s address')
+    parser.add_argument('-m', '--middlename', type=str, help='Specify target\'s middlename', nargs="+")
+    parser.add_argument('-e', '--email', type=str, help='Specify target\'s email address', nargs="+")
+    parser.add_argument('-p', '--phone', type=str, help='Specify target\'s phone number. Format: <+33XXXXXXXXX>', nargs="+")
+    parser.add_argument('-u', '--username', type=str, help='Specify target\'s username', nargs="+")
 
     args = parser.parse_args()
+    check_args(parser, args)
     return args
 
 def launch_OPSE(args):
@@ -71,7 +84,6 @@ def launch_OPSE(args):
 
     #----- Args control -----
     try:
-
         # Determine OS
         OS_NAME = sys.platform
         if OS_NAME == "linux":
@@ -82,10 +94,37 @@ def launch_OPSE(args):
             OPSE_CMD = "python3 core/Opse.py"
         else:
             print("Exiting... Wrong OS !")
-            exit()
+            sys.exit(1)
+
+        # GUI mode
+        if args.gui:
+            OPSE_CMD += " -A" # Start API option
+
+            if args.debug:
+                OPSE_CMD += " -D" # research debug option 
+            if args.strict:
+                OPSE_CMD += " -S" # research strict option
+
+            if any([
+                args.firstname,
+                args.middlename,
+                args.lastname,
+                args.gender,
+                args.birthdate,
+                args.age,
+                args.address,
+                args.phone,
+                args.email,
+                args.username,
+            ]):
+                print("WARNING: Target informations entered are not taken into account !")
+
+            webbrowser.open('file://' + os.path.realpath("webview/index.html"))
+            os.system(OPSE_CMD)
 
         # CLI mode
-        if args.mode == "cli":
+        else:
+
             OPSE_CMD += " -R" # research launch option 
             
             # Opse.py specific args
@@ -129,17 +168,6 @@ def launch_OPSE(args):
                 OPSE_CMD += f" --username"
                 for username in args.username:
                     OPSE_CMD += f" {username}"
-
-            os.system(OPSE_CMD)
-
-        # GUI mode
-        elif args.mode == "gui":
-            OPSE_CMD += " -A"
-
-            if args.debug:
-                OPSE_CMD += " -D"
-            if args.strict:
-                OPSE_CMD += " -S"
 
             os.system(OPSE_CMD)
     
