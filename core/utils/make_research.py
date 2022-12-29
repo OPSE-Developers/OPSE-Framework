@@ -19,7 +19,7 @@ from classes.types.OpseAddress import OpseAddress
 
 def make_research(
     target_firstname: str,
-    target_middlename:str,
+    target_middlename:list[str],
     target_lastname: str,
     target_gender: str,
     target_birthdate: str,
@@ -35,7 +35,7 @@ def make_research(
     :param target_firstname: First name of the target.
     :type target_firstname: str
     :param target_middlename: Middle name of the target.
-    :type target_middlename: str
+    :type target_middlename: list[str]
     :param target_lastname: Last name of the target.
     :type target_lastname: str
     :param target_gender: Gender of the target.
