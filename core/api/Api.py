@@ -6,6 +6,7 @@ import uuid
 import flask
 import threading
 import traceback
+from types import NoneType
 from flask import request
 from flask import jsonify, Response
 from waitress import serve
@@ -101,7 +102,6 @@ class Api(Task):
                                 data[key].remove("")
                         except ValueError:
                             pass
-                print(data)
 
                 if "firstname" in data:
                     firstname = data["firstname"]
@@ -112,8 +112,10 @@ class Api(Task):
                 if "middlename" in data:
                     middlename = data["middlename"]
                     nbData_get += 1
+                    if not isinstance(middlename,(list, NoneType)):
+                        middlename = [middlename]
                 else:
-                    firstname = None
+                    middlename = None
 
                 if "lastname" in data:
                     lastname = data["lastname"]
@@ -148,22 +150,56 @@ class Api(Task):
                 if "phone" in data:
                     phone = data["phone"]
                     nbData_get += 1
+                    if not isinstance(phone,(list, NoneType)):
+                        phone = [phone]
                 else:
                     phone = None
 
                 if "email" in data:
                     email = data["email"]
+                    if not isinstance(email,(list, NoneType)):
+                        email = [email]
                 else:
                     email = None
 
                 if "username" in data:
                     username = data["username"]
                     nbData_get += 1
+                    if not isinstance(username,(list, NoneType)):
+                        username = [username]
                 else:
                     username = None
 
+                # if any([
+                #     firstname,
+                #     middlename,
+                #     lastname,
+                #     gender,
+                #     birthdate,
+                #     age,
+                #     address,
+                #     phone,
+                #     email,
+                #     username,
+                # ]):
+                #     return self.send_error_message("Impossible de lancer une recherche sans information", 400)
+
                 if nbData_get <= 0:
                     return self.send_error_message("Impossible de lancer une recherche sans information", 400)
+
+                # print_debug([
+                #     firstname,
+                #     middlename,
+                #     lastname,
+                #     gender,
+                #     birthdate,
+                #     age,
+                #     address,
+                #     phone,
+                #     email,
+                #     username,
+                #     False,
+                # ])
 
                 research = make_research(
                     firstname,
