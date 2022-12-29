@@ -47,7 +47,7 @@ def main():
         parser = argparse.ArgumentParser()
         parser.add_argument('-R', '--research', help="Do a research", action='store', const=True, nargs='?')
         parser.add_argument('-f', '--firstname', help="Target's firstname")
-        parser.add_argument('-m', '--middlename', help="Target's midle name")
+        parser.add_argument('-m', '--middlename', help="Target's midle name", nargs="+")
         parser.add_argument('-l', '--lastname', help="Target's lastname")
         parser.add_argument('-g', '--gender', help="Target's gender")
         parser.add_argument('-b', '--birthdate', help="Target's birthdate (must follow this format dd/mm/YYYY)")
