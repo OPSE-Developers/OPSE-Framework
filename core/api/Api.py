@@ -109,9 +109,9 @@ class Api(Task):
                     firstname = None
 
                 if "middlename" in data:
-                    middlename = data["middlename"].split(",")
-                    if not isinstance(middlename,(list, NoneType)):
-                        middlename = [middlename]
+                    middlename = data["middlename"]
+                    if not isinstance(middlename, NoneType):
+                        middlename = middlename.split(",")
                 else:
                     middlename = None
 
@@ -141,27 +141,27 @@ class Api(Task):
                     address = None
 
                 if "phone" in data:
-                    phone = data["phone"].split(",")
-                    if not isinstance(phone,(list, NoneType)):
-                        phone = [phone]
+                    phone = data["phone"]
+                    if not isinstance(phone, NoneType):
+                        phone = phone.split(",")
                 else:
                     phone = None
 
                 if "email" in data:
-                    email = data["email"].split(",")
-                    if not isinstance(email,(list, NoneType)):
-                        email = [email]
+                    email = data["email"]
+                    if not isinstance(email, NoneType):
+                        email = email.split(",")
                 else:
                     email = None
 
                 if "username" in data:
-                    username = data["username"].split(",")
-                    if not isinstance(username,(list, NoneType)):
-                        username = [username]
+                    username = data["username"]
+                    if not isinstance(username, NoneType):
+                        username = username.split(",")
                 else:
                     username = None
 
-                if any([
+                if not any([
                     firstname,
                     middlename,
                     lastname,
@@ -269,11 +269,11 @@ class Api(Task):
                         }
                 for profile in research.get_lst_profile():
 
-                    picture = "https://pngimg.com/uploads/simpsons/simpsons_PNG86.png"
+                    picture = "./img/anon.png"
 
                     # We will try to get picture from
-                    for pict in profile.get_lst_pictures():
-                        picture = pict
+                    # for pict in profile.get_lst_pictures():
+                    #     picture = pict
 
                     for account in profile.get_lst_accounts():
                         for key in account.__dict__:
@@ -283,11 +283,11 @@ class Api(Task):
                             value = str(account.__dict__[key])
 
                             # Check extension.
-                            if value.split("://")[0] == "https" or value.split("://")[0] == "http":
+                            # if value.split("://")[0] == "https" or value.split("://")[0] == "http":
 
-                                value = html.unescape(value)
-                                if is_url_image(value):
-                                    picture = value
+                            #     value = html.unescape(value)
+                            #     if is_url_image(value):
+                            #         picture = value
 
                     dict['lst_profile'].append({"summary": profile.get_summary(),
                                                 "picture": picture,
