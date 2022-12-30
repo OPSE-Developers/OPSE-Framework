@@ -56,7 +56,7 @@ def main():
         parser.add_argument('-p', '--phone', help="Target's phone", nargs="+")
         parser.add_argument('-e', '--email', help="Target's email", nargs="+")
         parser.add_argument('-u', '--username', help="Target's username", nargs="+")
-        parser.add_argument('-S', '--strict', help="Strict mode", action='store', const=True, nargs='?')
+        parser.add_argument('-S', '--strict', help="Disable strict mode", action='store_false')
         parser.add_argument('-D', '--debug', help="Debug mode", action='store', const=True, nargs='?')
         parser.add_argument('-A', '--api', help="Launch the API", action='store', const=True, nargs='?')
 

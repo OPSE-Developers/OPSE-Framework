@@ -58,7 +58,7 @@ def args_parser():
     # Script Options
     parser.add_argument('-D', '--debug', action='store_true', help='Enable debug mode')
     parser.add_argument('-V', '--version', action='store_true', help='Print script version and exit')
-    parser.add_argument('-S', '--strict', action='store_true', help='Strict mode, input are case sensitive')
+    parser.add_argument('-S', '--strict', action='store_true', help='Disable strict mode')
     parser.add_argument('-G', '--gui', action='store_true', help='Launch OPSE in GUI mode')
 
     parser.add_argument('-f', '--firstname', type=str, help='Specify target\'s firstname')
