@@ -297,7 +297,7 @@ function display_profiles(id_div) {
 		.catch(error => { console.log("Error fetch : " + error) });
 }
 
-function add_profile_resume(id_div, index, profile_id, picture, sumary) {
+function add_profile_resume(id_div, index, profile_id, picture, summary) {
 	var data = '<div class="result">';
 	data += '<button class="div-bt-profile" type="button" onclick="show_results(\'' + profile_id + '\')">';
 	data += '<p class="profile-title">Profile ' + index + '</p>';
