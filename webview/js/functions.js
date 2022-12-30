@@ -1,5 +1,3 @@
-const UI_IP = "127.0.0.1"
-
 function cookie_add(key, value) {
 	document.cookie = key + "=" + value + ";path=/";
 }
@@ -17,7 +15,7 @@ function cookie_parse(key) {
 
 // ############## REGISTER CLIENT ############## //
 
-var url_api_register = "http://" + UI_IP + ":6060/register";
+var url_api_register = "http://127.0.0.1:6060/register";
 
 function register_client() {
 	fetch(url_api_register)
@@ -171,7 +169,8 @@ function load() {
 
 // ############## START RESEARCH ############## //
 
-var url_api_research = "http://" + UI_IP + ":6060/make_research";
+var url_api_research = "http://127.0.0.1:6060/make_research";
+
 function make_research(data) {
 
 	fetch(url_api_research, {
@@ -234,6 +233,7 @@ function get_checkbox() {
 }
 
 var url_api_visibility = "http://127.0.0.1:6060/set_visibility";
+
 function send_options() {
 	fetch(url_api_visibility, {
 		method: "PUT",
@@ -272,6 +272,7 @@ function send_options() {
 // ############## CHOICE ############## //
 
 var url_api_profiles = "http://127.0.0.1:6060/profiles";
+
 function display_profiles(id_div) {
 	fetch(url_api_profiles, {
 		method: "POST",
@@ -317,7 +318,8 @@ function get_checked() {
 	return checkboxIds;
 }
 
-var url_api_merge = "http://" + UI_IP + ":6060/merge";
+var url_api_merge = "http://127.0.0.1:6060/merge";
+
 function mergeSelection() {
 	fetch(url_api_merge, {
 		method: "POST",
@@ -342,7 +344,8 @@ function mergeSelection() {
 }
 
 
-var url_api_delete = "http://" + UI_IP + ":6060/remove_profile";
+var url_api_delete = "http://127.0.0.1:6060/remove_profile";
+
 function deleteSelection() {
 	fetch(url_api_delete, {
 		method: "DELETE",
@@ -368,3 +371,139 @@ function deleteSelection() {
 
 // ############## RESULT ############## //
 
+function show_results(profile_id) {
+    cookie_add("profile_id", profile_id);
+    window.location.href = "./results.html";
+}
+
+function openNetwork() {
+    lst = JSON.parse(sessionStorage.getItem("lst_accounts"));
+    console.log(lst);
+    for (var i = 0; i < lst.length; i++) {
+        if (!(lst[i] == undefined || lst[i] == null || lst[i] == "")) {
+            window.open(lst[i].url, "_blank");
+        }
+    }
+}
+
+//------------------------------------------------------------
+var url_api_profile = "http://localhost:6060/profile";
+
+function display_results(id_div) {
+    fetch(url_api_profile, {
+            method: "POST",
+
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify({
+                uuid: cookie_parse("uuid"),
+                research_id: cookie_parse("research_id"),
+                profile_id: cookie_parse("profile_id")
+            })
+        })
+        .then(res => {
+            res.json().then(value => {
+                //picture
+                if (value.lst_accounts.length > 0) {
+                    if (value.lst_accounts[0].image_url == undefined || value.lst_accounts[0].image_url == null || value.lst_accounts[0].image_url == "") {
+                        var data = '<center><img style="margin-top: 2em;" src="' + '../img/unknow-person.png';
+                    } else {
+                        var data = '<center><img style="margin-top: 2em;" src="' + value.lst_accounts[0].image_url;
+                    }
+                    data += '"width="200em" height="auto"></center>' + '\n';
+                } else {
+                    var data = '<center><img style="margin-top: 2em;" src="' + '../img/unknow-person.png"width="200em" height="auto"></center>';
+                }
+
+                //firstname
+                if (!(value.firstname.str_value == undefined || value.firstname.str_value == null || value.firstname.str_value == "")) {
+                    data += '<center><p style="margin-top: 30px;">Firstname : ' + value.firstname.str_value + '</p></center>';
+                }
+
+                //lastname
+                if (!(value.lastname.str_value == undefined || value.lastname.str_value == null || value.lastname.str_value == "")) {
+                    data += '<center><p>Lastname : ' + value.lastname.str_value + '</p></center>';
+                }
+
+                //age
+                if (!(value.age == undefined || value.age == null || value.age == "")) {
+                    data += '<center><p>Age : ' + value.age + '</p></center>'
+                }
+
+                //birthdate
+                if (!(value.birth == undefined || value.birth == null || value.birth == "")) {
+                    if (!(value.birth.date == undefined || value.birth.date == null || value.birth.date == "")) {
+                        data += '<center><p>Birthdate : ' + value.birth.date + '</p></center>'
+                    }
+                }
+
+                //birth address
+                if (!(value.birth == undefined || value.birth == null || value.birth == "")) {
+                    if (!(value.birth.address == undefined || value.birth.address == null || value.birth.address == "")) {
+                        if (value.birth.address.state_code.length >= 0) {
+                            data += '<center><p>Address birth : ' + value.birth.address.city + ', ' + value.birth.address.state_code + ', ' + value.birth.address.country + '</p></center>';
+                        }
+                    }
+                }
+
+                //deathdate
+                if (!(value.death == undefined || value.death == null || value.death == "")) {
+                    if (!(value.death.date == undefined || value.death.date == null || value.death.date == "")) {
+                        data += '<center><p>Deathdate : ' + value.death.date + '</p></center>'
+                    }
+                }
+
+                //death address
+                if (!(value.death == undefined || value.death == null || value.death == "")) {
+                    if (!(value.death.address == undefined || value.death.address == null || value.death.address == "")) {
+                        if (value.death.address.state_code.length >= 0) {
+                            data += '<center><p>Address death : ' + value.death.address.city + ', ' + value.death.address.state_code + ', ' + value.death.address.country + '</p></center>';
+                        }
+                    }
+                }
+
+                //middlename
+                if (value.lst_middlenames.length > 0) {
+                    for (var i = 0; i < value.lst_middlenames.length; i++) {
+                        if (!(value.lst_middlenames[i] == undefined || value.lst_middlenames[i] == null || value.lst_middlenames[i] == "")) {
+                            data += '<center><p>Middle name ' + i + ' : ' + value.lst_middlenames[i] + '</p></center>'
+                        }
+                    }
+                }
+
+                //username
+                if (value.lst_usernames.length > 0) {
+                    for (var i = 0; i < value.lst_usernames.length; i++) {
+                        if (!(value.lst_usernames[i] == undefined || value.lst_usernames[i] == null || value.lst_usernames[i] == "")) {
+                            data += '<center><p>Username : ' + i + ' : value.lst_usernames[i]' + '</p></center>';
+                        }
+                    }
+                }
+
+                //accounts
+                if (value.lst_accounts.length > 0) {
+                    sessionStorage.setItem("lst_accounts", JSON.stringify(value.lst_accounts))
+                    data += '<center><div style="cursor: pointer" onclick="openNetwork()"><img style="margin-top: 1em;" src="https://www.downloadclipart.net/large/social-media-png-pic.png" width="100px"></div></center>';
+                }
+
+                //emails
+                if (value.lst_emails.length > 0) {
+                    for (var i = 0; i < value.lst_emails.length; i++) {
+                        if (!(value.lst_emails[i].str_value == undefined || value.lst_emails[i].str_value == null || value.lst_emails[i].str_value == "")) {
+                            data += '<center><p>Email ' + i + ' : ' + value.lst_emails[i].str_value + '</p></center>'
+                        }
+                    }
+                }
+
+                //--------------------------------------
+                //DISPLAY
+                document.getElementById(id_div).innerHTML = data;
+            });
+        })
+        .catch(error => {
+            console.log("Error fetch : " + error)
+        });
+}
