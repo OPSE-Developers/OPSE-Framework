@@ -34,62 +34,65 @@ function register_client() {
 
 // ############## ADD INPUTS FORM ############## //
 
-document.addEventListener("DOMContentLoaded", function() {
-    const addInputButton = document.getElementById("add-middlename");
-    const inputContainer = document.getElementById("input-middlename");
-    
-    addInputButton.addEventListener("click", function() {
-        const newInput = document.createElement("input");
-        newInput.type = "text";
-        newInput.name = "middlename";
-        newInput.placeholder = "Middlename"
-        inputContainer.appendChild(document.createElement("br")); // add a line break
-        inputContainer.appendChild(newInput); // add the new input below the first input
-    });
-});
+if (window.location.pathname.split("/").pop() === "search.html") {
 
-document.addEventListener("DOMContentLoaded", function() {
-    const addInputButton = document.getElementById("add-username");
-    const inputContainer = document.getElementById("input-username");
-    
-    addInputButton.addEventListener("click", function() {
-        const newInput = document.createElement("input");
-        newInput.type = "text";
-        newInput.name = "username";
-        newInput.placeholder = "Username"
-        inputContainer.appendChild(document.createElement("br")); // add a line break
-        inputContainer.appendChild(newInput); // add the new input below the first input
-    });
-});
+	document.addEventListener("DOMContentLoaded", function() {
+		const addInputButton = document.getElementById("add-middlename");
+		const inputContainer = document.getElementById("input-middlename");
+		
+		addInputButton.addEventListener("click", function() {
+			const newInput = document.createElement("input");
+			newInput.type = "text";
+			newInput.name = "middlename";
+			newInput.placeholder = "Middlename"
+			inputContainer.appendChild(document.createElement("br")); // add a line break
+			inputContainer.appendChild(newInput); // add the new input below the first input
+		});
+	});
 
-document.addEventListener("DOMContentLoaded", function() {
-    const addInputButton = document.getElementById("add-phone");
-    const inputContainer = document.getElementById("input-phone");
-    
-    addInputButton.addEventListener("click", function() {
-        const newInput = document.createElement("input");
-        newInput.type = "tel";
-        newInput.name = "phone";
-        newInput.placeholder = "Phone number"
-        newInput.pattern =  "^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
-        inputContainer.appendChild(document.createElement("br")); // add a line break
-        inputContainer.appendChild(newInput); // add the new input below the first input
-    });
-});
+	document.addEventListener("DOMContentLoaded", function() {
+		const addInputButton = document.getElementById("add-username");
+		const inputContainer = document.getElementById("input-username");
+		
+		addInputButton.addEventListener("click", function() {
+			const newInput = document.createElement("input");
+			newInput.type = "text";
+			newInput.name = "username";
+			newInput.placeholder = "Username"
+			inputContainer.appendChild(document.createElement("br")); // add a line break
+			inputContainer.appendChild(newInput); // add the new input below the first input
+		});
+	});
 
-document.addEventListener("DOMContentLoaded", function() {
-    const addInputButton = document.getElementById("add-email");
-    const inputContainer = document.getElementById("input-email");
-    
-    addInputButton.addEventListener("click", function() {
-        const newInput = document.createElement("input");
-        newInput.type = "email";
-        newInput.name = "email";
-        newInput.placeholder = "Email"
-        inputContainer.appendChild(document.createElement("br")); // add a line break
-        inputContainer.appendChild(newInput); // add the new input below the first input
-    });
-});
+	document.addEventListener("DOMContentLoaded", function() {
+		const addInputButton = document.getElementById("add-phone");
+		const inputContainer = document.getElementById("input-phone");
+		
+		addInputButton.addEventListener("click", function() {
+			const newInput = document.createElement("input");
+			newInput.type = "tel";
+			newInput.name = "phone";
+			newInput.placeholder = "Phone number"
+			newInput.pattern =  "^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
+			inputContainer.appendChild(document.createElement("br")); // add a line break
+			inputContainer.appendChild(newInput); // add the new input below the first input
+		});
+	});
+
+	document.addEventListener("DOMContentLoaded", function() {
+		const addInputButton = document.getElementById("add-email");
+		const inputContainer = document.getElementById("input-email");
+		
+		addInputButton.addEventListener("click", function() {
+			const newInput = document.createElement("input");
+			newInput.type = "email";
+			newInput.name = "email";
+			newInput.placeholder = "Email"
+			inputContainer.appendChild(document.createElement("br")); // add a line break
+			inputContainer.appendChild(newInput); // add the new input below the first input
+		});
+	});
+}
 
 // ############## STORE INPUT ############## //
 
