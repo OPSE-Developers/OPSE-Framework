@@ -379,134 +379,29 @@ function show_results(profile_id) {
     window.location.href = "./results.html";
 }
 
-function openNetwork() {
-    lst = JSON.parse(sessionStorage.getItem("lst_accounts"));
-    console.log(lst);
-    for (var i = 0; i < lst.length; i++) {
-        if (!(lst[i] == undefined || lst[i] == null || lst[i] == "")) {
-            window.open(lst[i].url, "_blank");
-        }
-    }
+function activateMenuItem(menuItemId) {
+  // Get all menu items
+  const menuItems = document.querySelectorAll('.nav li');
+
+  // Remove the active class from all menu items
+  menuItems.forEach(menuItem => menuItem.classList.remove('active'));
+
+  // Add the active class to the menu item with the specified ID
+  document.getElementById(menuItemId).classList.add('active');
 }
 
-//------------------------------------------------------------
-var url_api_profile = "http://localhost:6060/profile";
+function generateOverviewHTML() {
 
-function display_results(id_div) {
-    fetch(url_api_profile, {
-            method: "POST",
+}
 
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+function generateProfileInformationHTML() {
+	
+}
 
-            body: JSON.stringify({
-                uuid: cookie_parse("uuid"),
-                research_id: cookie_parse("research_id"),
-                profile_id: cookie_parse("profile_id")
-            })
-        })
-        .then(res => {
-            res.json().then(value => {
-                //picture
-                if (value.lst_accounts.length > 0) {
-                    if (value.lst_accounts[0].image_url == undefined || value.lst_accounts[0].image_url == null || value.lst_accounts[0].image_url == "") {
-                        var data = '<center><img style="margin-top: 2em;" src="' + '../img/unknow-person.png';
-                    } else {
-                        var data = '<center><img style="margin-top: 2em;" src="' + value.lst_accounts[0].image_url;
-                    }
-                    data += '"width="200em" height="auto"></center>' + '\n';
-                } else {
-                    var data = '<center><img style="margin-top: 2em;" src="' + '../img/unknow-person.png"width="200em" height="auto"></center>';
-                }
+function generateMapsHTML() {
+	
+}
 
-                //firstname
-                if (!(value.firstname.str_value == undefined || value.firstname.str_value == null || value.firstname.str_value == "")) {
-                    data += '<center><p style="margin-top: 30px;">Firstname : ' + value.firstname.str_value + '</p></center>';
-                }
-
-                //lastname
-                if (!(value.lastname.str_value == undefined || value.lastname.str_value == null || value.lastname.str_value == "")) {
-                    data += '<center><p>Lastname : ' + value.lastname.str_value + '</p></center>';
-                }
-
-                //age
-                if (!(value.age == undefined || value.age == null || value.age == "")) {
-                    data += '<center><p>Age : ' + value.age + '</p></center>'
-                }
-
-                //birthdate
-                if (!(value.birth == undefined || value.birth == null || value.birth == "")) {
-                    if (!(value.birth.date == undefined || value.birth.date == null || value.birth.date == "")) {
-                        data += '<center><p>Birthdate : ' + value.birth.date + '</p></center>'
-                    }
-                }
-
-                //birth address
-                if (!(value.birth == undefined || value.birth == null || value.birth == "")) {
-                    if (!(value.birth.address == undefined || value.birth.address == null || value.birth.address == "")) {
-                        if (value.birth.address.state_code.length >= 0) {
-                            data += '<center><p>Address birth : ' + value.birth.address.city + ', ' + value.birth.address.state_code + ', ' + value.birth.address.country + '</p></center>';
-                        }
-                    }
-                }
-
-                //deathdate
-                if (!(value.death == undefined || value.death == null || value.death == "")) {
-                    if (!(value.death.date == undefined || value.death.date == null || value.death.date == "")) {
-                        data += '<center><p>Deathdate : ' + value.death.date + '</p></center>'
-                    }
-                }
-
-                //death address
-                if (!(value.death == undefined || value.death == null || value.death == "")) {
-                    if (!(value.death.address == undefined || value.death.address == null || value.death.address == "")) {
-                        if (value.death.address.state_code.length >= 0) {
-                            data += '<center><p>Address death : ' + value.death.address.city + ', ' + value.death.address.state_code + ', ' + value.death.address.country + '</p></center>';
-                        }
-                    }
-                }
-
-                //middlename
-                if (value.lst_middlenames.length > 0) {
-                    for (var i = 0; i < value.lst_middlenames.length; i++) {
-                        if (!(value.lst_middlenames[i] == undefined || value.lst_middlenames[i] == null || value.lst_middlenames[i] == "")) {
-                            data += '<center><p>Middle name ' + i + ' : ' + value.lst_middlenames[i] + '</p></center>'
-                        }
-                    }
-                }
-
-                //username
-                if (value.lst_usernames.length > 0) {
-                    for (var i = 0; i < value.lst_usernames.length; i++) {
-                        if (!(value.lst_usernames[i] == undefined || value.lst_usernames[i] == null || value.lst_usernames[i] == "")) {
-                            data += '<center><p>Username : ' + i + ' : value.lst_usernames[i]' + '</p></center>';
-                        }
-                    }
-                }
-
-                //accounts
-                if (value.lst_accounts.length > 0) {
-                    sessionStorage.setItem("lst_accounts", JSON.stringify(value.lst_accounts))
-                    data += '<center><div style="cursor: pointer" onclick="openNetwork()"><img style="margin-top: 1em;" src="https://www.downloadclipart.net/large/social-media-png-pic.png" width="100px"></div></center>';
-                }
-
-                //emails
-                if (value.lst_emails.length > 0) {
-                    for (var i = 0; i < value.lst_emails.length; i++) {
-                        if (!(value.lst_emails[i].str_value == undefined || value.lst_emails[i].str_value == null || value.lst_emails[i].str_value == "")) {
-                            data += '<center><p>Email ' + i + ' : ' + value.lst_emails[i].str_value + '</p></center>'
-                        }
-                    }
-                }
-
-                //--------------------------------------
-                //DISPLAY
-                document.getElementById(id_div).innerHTML = data;
-            });
-        })
-        .catch(error => {
-            console.log("Error fetch : " + error)
-        });
+function generateOthersHTML() {
+	
 }
