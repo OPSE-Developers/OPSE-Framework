@@ -557,8 +557,8 @@ function generateProfileInformationHTML(id_profile_content) {
 
 				//username
 				if (value.lst_usernames.length > 0) {
+					data += '<p>Username(s) :';
 					for (var i = 0; i < value.lst_usernames.length; i++) {
-						data += '<p>Username(s) :';
 						if (!(value.lst_usernames[i] == undefined || value.lst_usernames[i] == null || value.lst_usernames[i] == "")) {
 							data += ' ' + value.lst_usernames[i];
 						}
