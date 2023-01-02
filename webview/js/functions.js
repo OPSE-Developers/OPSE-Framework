@@ -379,6 +379,59 @@ function show_results(profile_id) {
     window.location.href = "./results.html";
 }
 
+var url_api_profile = "http://127.0.0.1:6060/profile";
+const NO = [undefined, null, ""]
+
+function getUsertitle(id_div) {
+	fetch(url_api_profile, {
+		method: "POST",
+
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+
+		body: JSON.stringify({
+			uuid: cookie_parse("uuid"),
+			research_id: cookie_parse("research_id"),
+			profile_id: cookie_parse("profile_id")
+		})
+	})
+		.then(res => {
+			res.json().then(value => {
+				
+				//firstname
+				if (!(value.firstname.str_value.includes(NO))) {
+					firstname = value.firstname.str_value;
+				}
+				//lastname
+				if (!(value.lastname.str_value.includes(NO))) {
+					lastname = value.lastname.str_value;
+				}
+				//username
+				if (value.lst_usernames.length > 0) {
+					username = value.lst_usernames[0];
+				}
+
+				// set user title
+				if (!(firstname.includes(NO))) {
+					userTitle = firstname;
+					if (!(lastname.includes(NO))) {
+						userTitle += " " + lastname;
+					}
+				} else if (!(username.includes(NO))) {
+					userTitle = username
+				} else {
+					userTitle = "Unknown"
+				}
+
+				var element = document.getElementById(id_div);
+				element.innerHTML = userTitle;
+			});
+		})
+		.catch(error => { console.log("Error fetch : " + error) });
+}
+
 function activateMenuItem(menuItemId) {
   // Get all menu items
   const menuItems = document.querySelectorAll('.nav li');
@@ -390,16 +443,268 @@ function activateMenuItem(menuItemId) {
   document.getElementById(menuItemId).classList.add('active');
 }
 
-function generateOverviewHTML() {
+// delete profile
+var url_api_delete = "http://127.0.0.1:6060/remove_profile";
 
+function deleteProfile() {
+	fetch(url_api_delete, {
+		method: "DELETE",
+
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+
+		body: JSON.stringify({
+			uuid: cookie_parse("uuid"),
+			research_id: cookie_parse("research_id"),
+			lst_profile: [cookie_parse("profile_id")]
+		})
+	})
+		.then(res => {
+			res.json().then(value => {
+				window.location.href = "./choice.html";
+			});
+		})
+		.catch(error => { console.log("Error fetch : " + error) });
 }
 
-function generateProfileInformationHTML() {
-	
+function clearProfileContent() {
+	// CLEAR HTML
+	const div = document.getElementById("profile-content");
+	div.innerHTML = '';
+}
+
+// function generateOverviewHTML() {}
+
+function generateProfileInformationHTML(id_profile_content) {
+	fetch(url_api_profile, {
+		method: "POST",
+
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+
+		body: JSON.stringify({
+			uuid: cookie_parse("uuid"),
+			research_id: cookie_parse("research_id"),
+			profile_id: cookie_parse("profile_id")
+		})
+	})
+		.then(res => {
+			res.json().then(value => {
+				
+				var data = "";
+
+				//firstname
+				if (!(value.firstname.str_value == undefined || value.firstname.str_value == null || value.firstname.str_value == "")) {
+					data += '<p style="margin-top: 30px;">Firstname : ' + value.firstname.str_value + '</p>';
+				}
+
+				//lastname
+				if (!(value.lastname.str_value == undefined || value.lastname.str_value == null || value.lastname.str_value == "")) {
+					data += '<p>Lastname : ' + value.lastname.str_value + '</p>';
+				}
+
+				//middlename
+				if (value.lst_middlenames.length > 0) {
+					for (var i = 0; i < value.lst_middlenames.length; i++) {
+						if (!(value.lst_middlenames[i] == undefined || value.lst_middlenames[i] == null || value.lst_middlenames[i] == "")) {
+							data += '<p>Middle name ' + i + ' : ' + value.lst_middlenames[i] + '</p>'
+						}
+					}
+				}
+
+				//age
+				if (!(value.age == undefined || value.age == null || value.age == "")) {
+					data += '<p>Age : ' + value.age + '</p>'
+				}
+
+				//birthdate
+				if (!(value.birth == undefined || value.birth == null || value.birth == "")) {
+					if (!(value.birth.date == undefined || value.birth.date == null || value.birth.date == "")) {
+						data += '<p>Birthdate : ' + value.birth.date + '</p>'
+					}
+				}
+
+				//birth address
+				if (!(value.birth == undefined || value.birth == null || value.birth == "")) {
+					if (!(value.birth.address == undefined || value.birth.address == null || value.birth.address == "")) {
+						if (value.birth.address.state_code.length >= 0) {
+							data += '<p>Address birth : ' + value.birth.address.city + ', ' + value.birth.address.state_code + ', ' + value.birth.address.country + '</p>';
+						}
+					}
+				}
+
+				//deathdate
+				if (!(value.death == undefined || value.death == null || value.death == "")) {
+					if (!(value.death.date == undefined || value.death.date == null || value.death.date == "")) {
+						data += '<p>Deathdate : ' + value.death.date + '</p>'
+					}
+				}
+
+				//death address
+				if (!(value.death == undefined || value.death == null || value.death == "")) {
+					if (!(value.death.address == undefined || value.death.address == null || value.death.address == "")) {
+						if (value.death.address.state_code.length >= 0) {
+							data += '<p>Address death : ' + value.death.address.city + ', ' + value.death.address.state_code + ', ' + value.death.address.country + '</p>';
+						}
+					}
+				}
+
+				//username
+				if (value.lst_usernames.length > 0) {
+					for (var i = 0; i < value.lst_usernames.length; i++) {
+						if (!(value.lst_usernames[i] == undefined || value.lst_usernames[i] == null || value.lst_usernames[i] == "")) {
+							data += '<p>Username : ' + i + ' : value.lst_usernames[i]' + '</p>';
+						}
+					}
+				}
+
+				//accounts
+				if (value.lst_accounts.length > 0) {
+					sessionStorage.setItem("lst_accounts", JSON.stringify(value.lst_accounts))
+					data += '<div style="cursor: pointer" onclick="openNetwork()"><img style="margin-top: 1em;" src="https://www.downloadclipart.net/large/social-media-png-pic.png" width="100px"></div>';
+				}
+
+				//emails
+				if (value.lst_emails.length > 0) {
+					for (var i = 0; i < value.lst_emails.length; i++) {
+						if (!(value.lst_emails[i].str_value == undefined || value.lst_emails[i].str_value == null || value.lst_emails[i].str_value == "")) {
+							data += '<p>Email ' + i + ' : ' + value.lst_emails[i].str_value + '</p>'
+						}
+					}
+				}
+
+				//--------------------------------------
+				//DISPLAY
+				document.getElementById("profile-content").innerHTML = data;
+			});
+		})
+		.catch(error => { console.log("Error fetch : " + error) });
+}
+
+function generateMarker(map, address) {
+	// Geocode the address using Nominatim
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(address) + '&format=json');
+	xhr.onload = function() {
+	if (xhr.status === 200) {
+		// Parse the response
+		var response = JSON.parse(xhr.responseText);
+		if (response.length > 0) {
+		// Use the first result
+		var lon = response[0].lon;
+		var lat = response[0].lat;
+
+		// Create a marker at the geocoded location
+		var marker = new ol.Feature({
+			geometry: new ol.geom.Point(ol.proj.fromLonLat([lon, lat]))
+		});
+
+		// Create a text style
+		var textStyle = new ol.style.Text({
+			text: address.split(",")[0],
+			font: '12px Arial',
+			offsetY: -20, // Offset the label from the marker
+			fill: new ol.style.Fill({color: 'black'})
+		});
+
+		// Create a red marker style
+		var markerStyle = new ol.style.Style({
+			image: new ol.style.RegularShape({
+			  points: 3,
+			  radius: 10,
+			  angle: Math.PI,
+			  fill: new ol.style.Fill({color: 'red'})
+			}),
+			text: textStyle // Add the text style to the marker style
+		});
+		
+		// Create a layer for the marker
+		var vectorSource = new ol.source.Vector({
+			features: [marker]
+		});
+
+		// Add the marker layer to the map
+		var markerLayer = new ol.layer.Vector({
+			source: vectorSource,
+			style: markerStyle
+		});
+		map.addLayer(markerLayer);
+
+		// Center the map on the marker
+		// map.getView().setCenter(ol.proj.fromLonLat([lon, lat]));
+		// map.getView().setZoom(12);
+		}
+	}
+	};
+	xhr.send();
+}
+
+
+function generateProfileAddressesMarker(map) {
+	fetch(url_api_profile, {
+		method: "POST",
+
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+
+		body: JSON.stringify({
+			uuid: cookie_parse("uuid"),
+			research_id: cookie_parse("research_id"),
+			profile_id: cookie_parse("profile_id")
+		})
+	})
+		.then(res => {
+			res.json().then(value => {
+
+				// birth address
+				if (!(value.birth == undefined || value.birth == null || value.birth == "")) {
+					if (!(value.birth.address == undefined || value.birth.address == null || value.birth.address == "")) {
+						if (value.birth.address.state_code.length >= 0) {
+							var birth_address = value.birth.address.city + ', ' + value.birth.address.state_code + ', ' + value.birth.address.country;
+							generateMarker(map, birth_address)
+						}
+					}
+				}
+				// death address
+				if (!(value.death == undefined || value.death == null || value.death == "")) {
+					if (!(value.death.date == undefined || value.death.date == null || value.death.date == "")) {
+						if (value.death.address.state_code.length >= 0) {
+							var death_address = value.death.address.city + ', ' + value.death.address.state_code + ', ' + value.death.address.country;
+							generateMarker(map, death_address)
+						}
+					}
+				}
+
+				
+			});
+		})
+		.catch(error => { console.log("Error fetch : " + error) });
 }
 
 function generateMapsHTML() {
-	
+
+	var data = '<div id="map" style="width: 100%;height: 400px;border: 1px solid white;"></div>';
+	document.getElementById("profile-content").innerHTML = data;
+	// Create the map object
+	var map = new ol.Map({
+	target: 'map', // The ID of the map div element
+	layers: [
+		new ol.layer.Tile({
+		source: new ol.source.OSM()
+		})
+	],
+	view: new ol.View({
+		center: ol.proj.fromLonLat([1.8, 46]), // Set the center of the map
+		zoom: 5 // Set the initial zoom level
+	})
+	});
+	generateProfileAddressesMarker(map)
 }
 
 function generateOthersHTML() {
