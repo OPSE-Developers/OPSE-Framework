@@ -509,11 +509,13 @@ function generateProfileInformationHTML(id_profile_content) {
 
 				//middlename
 				if (value.lst_middlenames.length > 0) {
+					data += '<p>Middle name(s):';
 					for (var i = 0; i < value.lst_middlenames.length; i++) {
 						if (!(value.lst_middlenames[i] == undefined || value.lst_middlenames[i] == null || value.lst_middlenames[i] == "")) {
-							data += '<p>Middle name ' + i + ' : ' + value.lst_middlenames[i] + '</p>'
+							data += ' ' + value.lst_middlenames[i];
 						}
 					}
+					data += '</p>';
 				}
 
 				//age
@@ -556,16 +558,19 @@ function generateProfileInformationHTML(id_profile_content) {
 				//username
 				if (value.lst_usernames.length > 0) {
 					for (var i = 0; i < value.lst_usernames.length; i++) {
+						data += '<p>Username(s) :';
 						if (!(value.lst_usernames[i] == undefined || value.lst_usernames[i] == null || value.lst_usernames[i] == "")) {
-							data += '<p>Username : ' + i + ' : value.lst_usernames[i]' + '</p>';
+							data += ' ' + value.lst_usernames[i];
 						}
 					}
+					data += '</p>';
 				}
 
 				//accounts
 				if (value.lst_accounts.length > 0) {
-					sessionStorage.setItem("lst_accounts", JSON.stringify(value.lst_accounts))
-					data += '<div style="cursor: pointer" onclick="openNetwork()"><img style="margin-top: 1em;" src="https://www.downloadclipart.net/large/social-media-png-pic.png" width="100px"></div>';
+					for (var i = 0; i < value.lst_accounts.length; i++) {
+						data += '<a href="' + value.lst_accounts[i]['url'] +'">' + value.lst_accounts[i]['type'] + '</a> '
+					}
 				}
 
 				//emails
