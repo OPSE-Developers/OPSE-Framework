@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # author : OPSE Developpers
 # date   : 2022-12-24
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 import argparse
 import textwrap
@@ -51,7 +51,7 @@ def args_parser():
         Implementation:
           Version      opse.py {VERSION}
           Authors      OPSE Developpers
-          Copyright    Copyright (c) OPSE 2021-2022
+          Copyright    Copyright (c) OPSE 2021-2023
           License      OPSE License  
         ''')
     )

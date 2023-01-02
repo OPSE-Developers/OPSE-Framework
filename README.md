@@ -16,7 +16,7 @@ This project is carried out within the framework of graduate studies at the Ecol
 
 Before installing OPSE, your environment needs some prerequisites.
 
-#### Python 3.X
+#### Python >=3.8
 
 ```
 sudo apt update -y && sudo apt upgrade -y
@@ -32,14 +32,11 @@ sudo apt install git -y
 
 ### Install OPSE
 
-With Git, you can get OPSE repositories:
-- opse-framework (the framework);
-- opse-gui (the web interface).
+With Git, you can get OPSE-Framework repository:
 
 ```
 mkdir opse; cd opse
 git clone --recurse-submodules https://github.com/OPSE-Developers/OPSE-Framework.git
-git clone https://github.com/OPSE-Developers/OPSE-Gui.git
 ```
 
 Once you got the repositories, you have to install OPSE requirements.
@@ -64,52 +61,52 @@ Once requirements are installed you can launch `./opse.py` launcher.
 ## Start OPSE
 
 ```bash
-./opse.py <cli|gui> <options>
+./opse.py <options>
 ```
 
 ## Usage
 
 ```
-usage: Opse.py [-h] [-D] [-V] [-S] {cli,gui} ...
+$ ./opse.py --help
+usage: opse.py [-h] [-D] [-V] [-S] [-G] [-f FIRSTNAME] [-l LASTNAME]
+               [-g {female,male}] [-a AGE] [-b BIRTHDATE] [-d ADDRESS]
+               [-m MIDDLENAME [MIDDLENAME ...]] [-e EMAIL [EMAIL ...]]
+               [-p PHONE [PHONE ...]] [-u USERNAME [USERNAME ...]]
 
 Simple commands to deploy OPSE containers.
 
-positional arguments:
-  {cli,gui}      OPSE mode
-    cli          Launch the CLI
-    gui          Launch the GUI
+options:
+  -h, --help            show this help message and exit
+  -D, --debug           Enable debug mode
+  -V, --version         Print script version and exit
+  -S, --strict          Disable strict mode
+  -G, --gui             Launch OPSE in GUI mode
 
-optional arguments:
-  -h, --help     show this help message and exit
-  -D, --debug    Enable debug mode
-  -V, --version  Print script version and exit
-  -S, --strict   Strict mode, input are case sensitive
+  -f FIRSTNAME, --firstname FIRSTNAME
+                        Specify target's firstname
+  -l LASTNAME, --lastname LASTNAME
+                        Specify target's lastname
+  -g {female,male}, --gender {female,male}
+                        Specify target's gender.
+  -a AGE, --age AGE     Specify target's age
+  -b BIRTHDATE, --birthdate BIRTHDATE
+                        Specify target's date of birth. Format: <YYYYMMDD>
+  -d ADDRESS, --address ADDRESS
+                        Specify target's address
+  -m MIDDLENAME [MIDDLENAME ...], --middlename MIDDLENAME [MIDDLENAME ...]
+                        Specify target's middlename
+  -e EMAIL [EMAIL ...], --email EMAIL [EMAIL ...]
+                        Specify target's email address
+  -p PHONE [PHONE ...], --phone PHONE [PHONE ...]
+                        Specify target's phone number. Format: <+33XXXXXXXXX>
+  -u USERNAME [USERNAME ...], --username USERNAME [USERNAME ...]
+                        Specify target's username
 
 Implementation:
-  Version      Opse.py 1.0.0
+  Version      opse.py X.X.X
   Authors      OPSE Developpers
-  Copyright    Copyright (c) OPSE 2021-2022
+  Copyright    Copyright (c) OPSE 2021-2023
   License      OPSE License
-```
-
-### CLI Usage
-
-```
-usage: Opse.py cli [-h] [-a AGE] [-b BIRTHDATE] [-d ADDRESS] [-e EMAIL] [-f FIRSTNAME] [-g GENDER] [-l LASTNAME] 
-                   [-m MIDDLENAME] [-p PHONE] [-u USERNAME]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -a AGE, --age AGE     Specify target's age
-  -b BIRTHDATE, --birthdate BIRTHDATE    Specify target's date of birth. Format: <YYYYMMDD>
-  -d ADDRESS, --address ADDRESS          Specify target's address
-  -e EMAIL, --email EMAIL                Specify target's email address
-  -f FIRSTNAME, --firstname FIRSTNAME    Specify target's firstname
-  -g GENDER, --gender GENDER             Specify target's gender. Possible values: <male|female>
-  -l LASTNAME, --lastname LASTNAME       Specify target's lastname
-  -m MIDDLENAME, --middlename MIDDLENAME Specify target's middlename
-  -p PHONE, --phone PHONE                Specify target's phone number. Format: <+33XXXXXXXXX>
-  -u USERNAME, --username USERNAME       Specify target's username
 
 ```
 
