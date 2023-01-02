@@ -147,7 +147,7 @@ body {
   padding-left: 15px;
 }
 
-.img-responsive, .thumbnail a > img, .thumbnail > img {
+.img-responsive {
   display: block;
   max-width: 100%;
   height: auto;
