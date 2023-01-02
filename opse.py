@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # author : OPSE Developpers
-# date   : 2022-12-24
-VERSION = "1.0.1"
+# date   : 2023-01-02
+VERSION = "1.1.0"
 
 import argparse
 import textwrap
