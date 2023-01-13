@@ -6,6 +6,8 @@ OPSE stands for OSINT People Search Engine.
 
 As its name suggests, OPSE is a search engine based on Open Source INTelligence. It is a semi-automatic tool that requieres at least one input data like a full name or an email address and displays all the informations it can find or interpret.
 
+Do you want to talk about the project and and assist in the development of the project ? You can join our discord using [this link](https://discord.gg/8CpMnHXUDb) !
+
 ## Context
 
 This project is carried out within the framework of graduate studies at the Ecole Nationale Supérieure d'Ingénieurs de Bretagne Sud.
