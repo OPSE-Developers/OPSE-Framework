@@ -70,9 +70,10 @@ Once requirements are installed you can launch `./opse.py` launcher.
 
 ```
 $ ./opse.py --help
-usage: opse.py [-h] [-D] [-V] [-S] [-G] [-f FIRSTNAME] [-l LASTNAME]
-               [-g {female,male}] [-a AGE] [-b BIRTHDATE] [-d ADDRESS]
-               [-m MIDDLENAME [MIDDLENAME ...]] [-e EMAIL [EMAIL ...]]
+usage: opse.py [-h] [-D] [-V] [-S] [-A]
+               [-f FIRSTNAME] [-m MIDDLENAME [MIDDLENAME ...]]
+               [-l LASTNAME] [-g {female,male}] [-b BIRTHDATE]
+               [-a AGE] [-d ADDRESS] [-e EMAIL [EMAIL ...]]
                [-p PHONE [PHONE ...]] [-u USERNAME [USERNAME ...]]
 
 Simple commands to deploy OPSE containers.
@@ -82,21 +83,21 @@ options:
   -D, --debug           Enable debug mode
   -V, --version         Print script version and exit
   -S, --strict          Disable strict mode
-  -G, --gui             Launch OPSE in GUI mode
-
+  -A, --api             Launch the API only
+  
   -f FIRSTNAME, --firstname FIRSTNAME
                         Specify target's firstname
+  -m MIDDLENAME [MIDDLENAME ...], --middlename MIDDLENAME [MIDDLENAME ...]
+                        Specify target's middlename
   -l LASTNAME, --lastname LASTNAME
                         Specify target's lastname
   -g {female,male}, --gender {female,male}
                         Specify target's gender.
-  -a AGE, --age AGE     Specify target's age
   -b BIRTHDATE, --birthdate BIRTHDATE
                         Specify target's date of birth. Format: <YYYYMMDD>
+  -a AGE, --age AGE     Specify target's age
   -d ADDRESS, --address ADDRESS
                         Specify target's address
-  -m MIDDLENAME [MIDDLENAME ...], --middlename MIDDLENAME [MIDDLENAME ...]
-                        Specify target's middlename
   -e EMAIL [EMAIL ...], --email EMAIL [EMAIL ...]
                         Specify target's email address
   -p PHONE [PHONE ...], --phone PHONE [PHONE ...]
@@ -109,7 +110,6 @@ Implementation:
   Authors      OPSE Developpers
   Copyright    Copyright (c) OPSE 2021-2023
   License      OPSE License
-
 ```
 
 ## License

@@ -15,7 +15,5 @@
 **/config.yml
 
 **/*.log
-.CORE_DOCKER.log
-.WEB_DOCKER.log
 
-core/test.py
+**/test.py
