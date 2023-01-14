@@ -231,7 +231,7 @@ class Api(Task):
                 profile: Profile = Profile.get_profile(data["profile_id"])
                 research = Research.get_research(data["research_id"])
 
-                return jsonify(research.anonymise_unvisible_data(to_dict(profile, display_none_value))), 200
+                return jsonify(to_dict(profile, display_none_value)), 200
             except Exception as e:
                 print_log(str(e) + "\n" + str(traceback.format_exc()))
                 return self.send_error_message("Erreur interne. Impossible de traiter la demande", 500)
