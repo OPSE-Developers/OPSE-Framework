@@ -1,3 +1,11 @@
+Changelog v1.2.0 (2023-01-14)
+=================================
+
+Changes
+----------
+- Add automatic requirements download
+
+
 Changelog v1.1.0 (2023-01-02)
 =================================
 
