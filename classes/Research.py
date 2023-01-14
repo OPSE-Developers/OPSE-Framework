@@ -148,10 +148,11 @@ class Research:
             tool_process.join()
 
         # 4) Add new profile in Research profile list
+        nb_profile_added = 0
         for profile in map_tool_for_profile.keys():
             # Add new profile in Research profile list
             for tool in map_tool_for_profile[profile]:
-                nb_profile_added = 0
+                # nb_profile_added = 0
                 try:
                     for new_profile in tool.get_profiles():
                         self.__lst_profile.append(new_profile)
