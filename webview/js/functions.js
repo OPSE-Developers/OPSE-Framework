@@ -202,74 +202,13 @@ function make_research(data) {
 			res.json().then(
 				value => {
 					cookie_add("research_id", value.research_id);
-					window.location.href = "./options.html";
+					window.location.href = "./choice.html";
 				}
 			);
 		})
 		.catch(error => {
 			console.log("Error fetch : " + error);
 		});
-}
-
-// ############## CHOOSE VISIBILITY ############## //
-
-function get_checkbox() {
-	dict_check = {
-		firstname: document.getElementById("check_firstname").checked,
-		lastname: document.getElementById("check_lastname").checked,
-		lst_middlenames: document.getElementById("check_middlename").checked,
-		lst_usernames: document.getElementById("check_username").checked,
-		gender: document.getElementById("check_gender").checked,
-		birth: document.getElementById("check_birthdate").checked,
-		death: document.getElementById("check_deathdate").checked,
-		age: document.getElementById("check_age").checked,
-		lst_phone_numbers: document.getElementById("check_phone").checked,
-		lst_accounts: document.getElementById("check_accounts").checked,
-		lst_pictures: document.getElementById("check_pictures").checked,
-		lst_ips: document.getElementById("check_ip").checked,
-		lst_addresses: document.getElementById("check_address").checked,
-		lst_locations: document.getElementById("check_location").checked,
-		lst_organizations: document.getElementById("check_organization").checked,
-		political_orientation: document.getElementById("check_political_orientations").checked
-	}
-	return dict_check;
-}
-
-var url_api_visibility = "http://127.0.0.1:6060/set_visibility";
-
-function send_options() {
-	fetch(url_api_visibility, {
-		method: "PUT",
-
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		},
-
-		body: JSON.stringify({
-			uuid: cookie_parse("uuid"),
-			research_id: cookie_parse("research_id"),
-			firstname: get_checkbox().firstname,
-			lastname: get_checkbox().lastname,
-			lst_middlenames: get_checkbox().lst_middlenames,
-			lst_usernames: get_checkbox().lst_usernames,
-			gender: get_checkbox().gender,
-			birth: get_checkbox().birth,
-			death: get_checkbox().death,
-			age: get_checkbox().age,
-			lst_phone_numbers: get_checkbox().lst_phone_numbers,
-			lst_accounts: get_checkbox().lst_accounts,
-			lst_pictures: get_checkbox().lst_pictures,
-			lst_ips: get_checkbox().lst_ips,
-			lst_addresses: get_checkbox().lst_addresses,
-			lst_locations: get_checkbox().lst_locations,
-			lst_organizations: get_checkbox().lst_organizations,
-			political_orientation: get_checkbox().political_orientation
-		})
-	})
-		.then(res => { res.json().then(value => { window.location.href = "./choice.html" }) })
-		.catch(error => { console.log("Error fetch : " + error) });
-
 }
 
 // ############## CHOICE ############## //
@@ -380,7 +319,6 @@ function show_results(profile_id) {
 }
 
 var url_api_profile = "http://127.0.0.1:6060/profile";
-const NO = [undefined, null, ""]
 
 function getUsertitle(id_div) {
 	fetch(url_api_profile, {
@@ -399,13 +337,12 @@ function getUsertitle(id_div) {
 	})
 		.then(res => {
 			res.json().then(value => {
-				
 				//firstname
-				if (!(value.firstname.str_value.includes(NO))) {
+				if (typeof value.firstname !== 'undefined') {
 					firstname = value.firstname.str_value;
 				}
 				//lastname
-				if (!(value.lastname.str_value.includes(NO))) {
+				if (typeof value.lastname !== 'undefined') {
 					lastname = value.lastname.str_value;
 				}
 				//username
@@ -414,12 +351,12 @@ function getUsertitle(id_div) {
 				}
 
 				// set user title
-				if (!(firstname.includes(NO))) {
+				if (typeof firstname !== 'undefined') {
 					userTitle = firstname;
-					if (!(lastname.includes(NO))) {
+					if (typeof lastname !== 'undefined') {
 						userTitle += " " + lastname;
 					}
-				} else if (!(username.includes(NO))) {
+				} else if (typeof username !== 'undefined') {
 					userTitle = username
 				} else {
 					userTitle = "Unknown"
@@ -498,12 +435,12 @@ function generateProfileInformationHTML(id_profile_content) {
 				var data = "";
 
 				//firstname
-				if (!(value.firstname.str_value == undefined || value.firstname.str_value == null || value.firstname.str_value == "")) {
+				if (value.firstname !== undefined) {
 					data += '<p style="margin-top: 30px;">Firstname : ' + value.firstname.str_value + '</p>';
 				}
 
 				//lastname
-				if (!(value.lastname.str_value == undefined || value.lastname.str_value == null || value.lastname.str_value == "")) {
+				if (value.lastname !== undefined) {
 					data += '<p>Lastname : ' + value.lastname.str_value + '</p>';
 				}
 
@@ -511,7 +448,7 @@ function generateProfileInformationHTML(id_profile_content) {
 				if (value.lst_middlenames.length > 0) {
 					data += '<p>Middle name(s):';
 					for (var i = 0; i < value.lst_middlenames.length; i++) {
-						if (!(value.lst_middlenames[i] == undefined || value.lst_middlenames[i] == null || value.lst_middlenames[i] == "")) {
+						if (value.lst_middlenames[i] !== undefined) {
 							data += ' ' + value.lst_middlenames[i];
 						}
 					}
@@ -519,20 +456,20 @@ function generateProfileInformationHTML(id_profile_content) {
 				}
 
 				//age
-				if (!(value.age == undefined || value.age == null || value.age == "")) {
+				if (value.age !== undefined) {
 					data += '<p>Age : ' + value.age + '</p>'
 				}
 
 				//birthdate
-				if (!(value.birth == undefined || value.birth == null || value.birth == "")) {
-					if (!(value.birth.date == undefined || value.birth.date == null || value.birth.date == "")) {
+				if (value.birth !== undefined) {
+					if (value.birth.date !== undefined) {
 						data += '<p>Birthdate : ' + value.birth.date + '</p>'
 					}
 				}
 
 				//birth address
-				if (!(value.birth == undefined || value.birth == null || value.birth == "")) {
-					if (!(value.birth.address == undefined || value.birth.address == null || value.birth.address == "")) {
+				if (value.birth !== undefined) {
+					if (value.birth.address == undefined) {
 						if (value.birth.address.state_code.length >= 0) {
 							data += '<p>Address birth : ' + value.birth.address.city + ', ' + value.birth.address.state_code + ', ' + value.birth.address.country + '</p>';
 						}
@@ -540,15 +477,15 @@ function generateProfileInformationHTML(id_profile_content) {
 				}
 
 				//deathdate
-				if (!(value.death == undefined || value.death == null || value.death == "")) {
-					if (!(value.death.date == undefined || value.death.date == null || value.death.date == "")) {
+				if (value.death !== undefined) {
+					if (value.death.date !== undefined) {
 						data += '<p>Deathdate : ' + value.death.date + '</p>'
 					}
 				}
 
 				//death address
-				if (!(value.death == undefined || value.death == null || value.death == "")) {
-					if (!(value.death.address == undefined || value.death.address == null || value.death.address == "")) {
+				if (value.death !== undefined) {
+					if (value.death.address !== undefined) {
 						if (value.death.address.state_code.length >= 0) {
 							data += '<p>Address death : ' + value.death.address.city + ', ' + value.death.address.state_code + ', ' + value.death.address.country + '</p>';
 						}
@@ -559,7 +496,7 @@ function generateProfileInformationHTML(id_profile_content) {
 				if (value.lst_usernames.length > 0) {
 					data += '<p>Username(s) :';
 					for (var i = 0; i < value.lst_usernames.length; i++) {
-						if (!(value.lst_usernames[i] == undefined || value.lst_usernames[i] == null || value.lst_usernames[i] == "")) {
+						if (value.lst_usernames[i] !== undefined) {
 							data += ' ' + value.lst_usernames[i];
 						}
 					}
@@ -576,7 +513,7 @@ function generateProfileInformationHTML(id_profile_content) {
 				//emails
 				if (value.lst_emails.length > 0) {
 					for (var i = 0; i < value.lst_emails.length; i++) {
-						if (!(value.lst_emails[i].str_value == undefined || value.lst_emails[i].str_value == null || value.lst_emails[i].str_value == "")) {
+						if (value.lst_emails[i].str_value !== undefined) {
 							data += '<p>Email ' + i + ' : ' + value.lst_emails[i].str_value + '</p>'
 						}
 					}
