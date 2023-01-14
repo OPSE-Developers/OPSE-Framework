@@ -17,6 +17,8 @@ import signal
 import textwrap
 import time
 import traceback
+import os
+import webbrowser
 
 from api.Api import Api
 from classes.Research import make_research
@@ -93,7 +95,6 @@ class OPSE:
                 args.phone,
                 args.email,
                 args.username,
-                args.debug,
                 args.version,
                 args.api
             ]
@@ -136,6 +137,14 @@ class OPSE:
                 __api = Api.get()
                 __api.daemon = True
                 __api.start()
+                
+                # access webview
+                index_path = 'file://' + os.path.realpath("webview/index.html")
+                try:
+                    webbrowser.open(index_path)
+                except:
+                    print_sucess("Access webview from this link: " + index_path)
+
                 while True:
                     time.sleep(0.1)
             
