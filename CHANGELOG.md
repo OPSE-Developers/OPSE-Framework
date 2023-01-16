@@ -42,6 +42,7 @@ Global Fix
 - Fix NoneType error
 - Fix CTRL-C for API
 - Fix webview crashes without names
+- Fix enrich_profile active tools
 
 
 Changelog v1.1.0 (2023-01-02)

@@ -9,6 +9,7 @@ from typing import Type, TypeVar
 from classes.Profile import Profile
 from classes.types.OpseAddress import OpseAddress
 from classes.types.OpseBirth import OpseBirth
+from classes.types.OpseDate import OpseDate
 from classes.types.OpseInt import OpseInt
 from classes.types.OpseStr import OpseStr
 from tools.Tool import Tool
@@ -125,9 +126,11 @@ class Research:
 
                 for tool in active_tools:
                     if data_type_input in tool.get_lst_input_data_types():
-                        print_debug("--> " + data_type_input + " from " + str(
-                            hex(id(profile))) + " could be use by " + tool.get_name() + ".")
-                        Research.__add_profile_in_map_tool(map_tool_for_profile, profile, tool())
+                        if id(profile) not in tool.lst_profiles_seen:
+                            print_debug("--> " + data_type_input + " from " + str(
+                                hex(id(profile))) + " could be use by " + tool.get_name() + ".")
+                            # tool.lst_profiles_seen.append(id(profile))
+                            Research.__add_profile_in_map_tool(map_tool_for_profile, profile, tool())
 
         # 2) Launch each tool
         print_debug("\nLaunching each tool")
@@ -321,14 +324,16 @@ def make_research(
                 if isinstance(tmp_address, dict):
 
                     try:
-                        tmp_lst.append(OpseAddress(user_input,
-                                                     int(tmp_address["number"]),
-                                                     tmp_address["street"],
-                                                     int(tmp_address["state_code"]),
-                                                     tmp_address["city"],
-                                                     tmp_address["country"]
-                                                     )
-                                       )
+                        tmp_lst.append(
+                            OpseAddress(
+                                user_input,
+                                int(tmp_address["number"]),
+                                tmp_address["street"],
+                                int(tmp_address["state_code"]),
+                                tmp_address["city"],
+                                tmp_address["country"]
+                            )
+                        )
                     except ValueError:
                         print_error("Not able to use given address. Value error raised.")
                 else:

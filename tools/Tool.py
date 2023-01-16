@@ -22,6 +22,7 @@ class Tool(Task, ABC):
     """
     lst_available_tools: dict = {}
     lst_active_tools: list = []
+    lst_profiles_seen: list = []
 
     def __init__(self, *args, **kwargs):
         """Constructor of a Tool."""
@@ -72,6 +73,7 @@ class Tool(Task, ABC):
         :type profile: Profile
         """
         self.__result_profiles.append(profile)
+        self.lst_profiles_seen.append(id(profile))
 
     @staticmethod
     def get_config() -> dict:
@@ -152,6 +154,7 @@ class Tool(Task, ABC):
         :rtype: list[Tool]
         """
         tool: T
+        cls.lst_active_tools = []
         for tool in cls.lst_available_tools.values():
 
             if tool.is_active():
