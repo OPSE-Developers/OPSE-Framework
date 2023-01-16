@@ -295,6 +295,7 @@ def make_research(
     :return: The research containing profiles.
     :rtype: Research
     """
+    print_sucess(" Starting new research...")
     user_input = "USER INPUT"
 
     # Check user input

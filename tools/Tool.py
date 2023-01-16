@@ -163,7 +163,7 @@ class Tool(Task, ABC):
                     print_warning(" Plugin " + tool.get_name() + " is deprecated. You should not use it.", True)
 
             else:
-                print_warning(" Plugin " + tool.get_name() + " is not active.")
+                print_warning(" Plugin " + tool.get_name() + " is not active.", True)
 
         print_sucess(" " + str(len(cls.lst_active_tools)) + " of " + str(len(cls.lst_available_tools)) + " tools are active.")
         sleep(3)

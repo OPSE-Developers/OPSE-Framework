@@ -27,6 +27,10 @@ Concept
 - Add `*args` and `**kwargs` to diverse classes
 - Remove Data Visibility
 
+Webview
+----------
+- Remove Options page
+
 Parser
 ----------
 - Remove `--research` option
@@ -37,6 +41,7 @@ Global Fix
 - Fix automatic requirements download
 - Fix NoneType error
 - Fix CTRL-C for API
+- Fix webview crashes without names
 
 
 Changelog v1.1.0 (2023-01-02)

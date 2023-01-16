@@ -9,7 +9,10 @@ LICENSE = "GNU GPLv3"
 COPYRIGHT = "Copyright (c) OPSE 2021-2023"
 
 CREATION = "2021-09-15"
-LTUPDATE = "2023-01-14"
+LTUPDATE = "2023-01-16"
+
+# Must be firt
+from utils import YES
 
 import argparse
 import logging
@@ -25,7 +28,6 @@ from classes.Research import make_research
 from tools.Tool import Tool
 from utils.config.Config import Config, get_default_config
 from utils.exceptions import PreviousException
-from utils.init import init
 from utils.menu import main_menu
 from utils.signals import previous
 from utils.stdout import Colors, clear, print_error, print_sucess
@@ -84,6 +86,11 @@ class OPSE:
             # Parse args
             args = parser.parse_args()
 
+            # Print version
+            if args.version:
+                print(f"OPSE {VERSION}")
+                exit()
+
             at_least_one: list = [
                 args.firstname,
                 args.middlename,
@@ -95,7 +102,6 @@ class OPSE:
                 args.phone,
                 args.email,
                 args.username,
-                args.version,
                 args.api
             ]
             # Exit without at_least_one
@@ -121,16 +127,14 @@ class OPSE:
             opse_config["config"]["tools"] = Tool.get_tool_config()
             Config.update_config(opse_config)
 
-            YES = [True, 'Yes', 'yes', 'y', 'True', 'true', '1']
-            if args.debug in YES:
-                Config.set_debug(True)
-
             init_log_path()
             log_level = logging.DEBUG if Config.get()["config"]["debug"] else logging.INFO
             log_path = str(Config.get()["config"]["log_path"]) + "/" + str(get_today_date("%Y%m%d")) + "_opse.log"
             logging.basicConfig(format='%(asctime)s - %(message)s', level=log_level, filename=log_path, filemode='w')
-
             clear()
+
+            if args.debug in YES:
+                Config.set_debug(True)         
 
             __api: Api = None
             if args.api in YES:
@@ -149,10 +153,6 @@ class OPSE:
                     time.sleep(0.1)
             
             else:
-                if args.strict is not None and args.strict not in YES:
-                    Config.set_strict(False)
-
-                print_sucess(" Starting new research...")
                 main_menu(make_research(
                     args.firstname,
                     args.middlename,
@@ -175,7 +175,6 @@ class OPSE:
 
 if __name__ == "__main__":
     try:
-        init()
         OPSE.main()
     except PreviousException:
         exit(1)
