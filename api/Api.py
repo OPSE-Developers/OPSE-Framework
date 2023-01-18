@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from typing import Tuple
 import flask
 import signal
 import threading
@@ -469,7 +470,7 @@ class Api(Task):
         return False
 
     @staticmethod
-    def send_error_message(error_message: str, code: int) -> tuple[Response, int]:
+    def send_error_message(error_message: str, code: int) -> Tuple[Response, int]:
         """Normalizes error message to send to a web user.`
 
         :param error_message: The error message.

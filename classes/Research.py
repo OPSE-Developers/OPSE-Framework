@@ -4,7 +4,7 @@ import gc
 import uuid
 
 from datetime import datetime
-from typing import Type, TypeVar
+from typing import Dict, List, Type, TypeVar
 
 from classes.Profile import Profile
 from classes.types.OpseAddress import OpseAddress
@@ -41,16 +41,16 @@ class Research:
             # /!\ Unsafe mode should never be used in production.
             self.__id = str(len(Research.get_lst_research()))
 
-        self.__lst_profile: list[Profile] = [default_profile]
+        self.__lst_profile: List[Profile] = [default_profile]
         # self.__profiles_visibility = self.__init_profile_visibility(default_profile)
 
         Research.get_lst_research().append(self)
 
-    def get_lst_profile(self) -> list[Profile]:
+    def get_lst_profile(self) -> List[Profile]:
         """Getter of the research's list of profiles.
 
         :return: The list of profiles found.
-        :rtype: list[Profile]
+        :rtype: List[Profile]
         """
         return self.__lst_profile
 
@@ -116,8 +116,8 @@ class Research:
         """
         # 1) Define wich tool could be used for each profile
         print_debug("\nStarting profile enrichment...")
-        map_tool_for_profile: dict[Profile, list[Tool]] = {}
-        active_tools: list[Tool] = Tool.get_lst_active_tools() # List of tools. Each tool should be add in here.
+        map_tool_for_profile: Dict[Profile, List[Tool]] = {}
+        active_tools: List[Tool] = Tool.get_lst_active_tools() # List of tools. Each tool should be add in here.
 
         for profile in self.get_lst_profile():
 
@@ -210,7 +210,7 @@ class Research:
         Merge if values do not produce conflicts.
 
         :param lst_profile: The list of all profiles, defaults to [].
-        :type lst_profile: list[Profile], optional
+        :type lst_profile: List[Profile], optional
         :return: The merged profile or None if it didn't work.
         :rtype: Profile
         """
@@ -259,15 +259,15 @@ class Research:
 
 def make_research(
     target_firstname: str,
-    target_middlename:list[str],
+    target_middlename:List[str],
     target_lastname: str,
     target_gender: str,
     target_birthdate: str,
     target_age: str,
-    target_address: list[str],
-    target_phone: list[str],
-    target_email: list[str],
-    target_username: list[str],
+    target_address: List[str],
+    target_phone: List[str],
+    target_email: List[str],
+    target_username: List[str],
     start_research: bool = True,
 ) -> Research:
     """Function that makes a research from target's information.
@@ -275,7 +275,7 @@ def make_research(
     :param target_firstname: First name of the target.
     :type target_firstname: str
     :param target_middlename: Middle name of the target.
-    :type target_middlename: list[str]
+    :type target_middlename: List[str]
     :param target_lastname: Last name of the target.
     :type target_lastname: str
     :param target_gender: Gender of the target.
@@ -285,13 +285,13 @@ def make_research(
     :param target_age: Age of the target.
     :type target_age: str
     :param target_address: Address of the target.
-    :type target_address: list[str]
+    :type target_address: List[str]
     :param target_phone: Phone number of the target.
-    :type target_phone: list[str]
+    :type target_phone: List[str]
     :param target_email: Email  of the target.
-    :type target_email: list[str]
+    :type target_email: List[str]
     :param target_username: Username of the target.
-    :type target_username: list[str]
+    :type target_username: List[str]
     :param start_research: Setting to start the research, defaults to
      True.
     :type start_research: bool, optional
