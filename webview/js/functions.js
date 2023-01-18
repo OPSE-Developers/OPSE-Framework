@@ -506,7 +506,7 @@ function generateProfileInformationHTML(id_profile_content) {
 				//accounts
 				if (value.lst_accounts.length > 0) {
 					for (var i = 0; i < value.lst_accounts.length; i++) {
-						data += '<a href="' + value.lst_accounts[i]['url'] +'">' + value.lst_accounts[i]['type'] + '</a> '
+						data += '<a href="' + value.lst_accounts[i]['url'] +'" target="_blank">' + value.lst_accounts[i]['type'] + '</a> '
 					}
 				}
 
