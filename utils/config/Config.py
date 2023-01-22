@@ -7,11 +7,11 @@ import yaml
 
 class Config:
     """
-    Class that defines HALL configuration.
+    Class that defines OPSE configuration.
     
     It generates a configuration file from a default configuration.
     Once the configuration file is modified by the user, it gets the
-    user's configuration to improve HALL usage.
+    user's configuration to improve OPSE usage.
     """
     __config: dict = {}
 
@@ -131,7 +131,7 @@ class Config:
 
     @staticmethod
     def read():
-        """Read config.yml file to store HALL configuration.
+        """Read config.yml file to store OPSE configuration.
         """
         try:
             with open("config.yml", "r") as ymlfile:
