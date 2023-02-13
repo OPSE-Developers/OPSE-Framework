@@ -4,7 +4,7 @@ import copy
 import uuid
 
 from datetime import date
-from typing import Type, TypeVar
+from typing import List, Type, TypeVar
 
 from classes.account.Account import Account
 from classes.types.OpseAddress import OpseAddress
@@ -32,20 +32,20 @@ class Profile:
             self,
             firstname: OpseStr = None,
             lastname: OpseStr = None,
-            lst_middlenames: list[OpseStr] = [],
+            lst_middlenames: List[OpseStr] = [],
             gender: OpseStr = None,
             birthdate: OpseDate = None,
             deathdate: OpseDate = None,
             age: OpseInt = None,
-            lst_phone_numbers: list[OpseStr] = [],
-            lst_usernames: list[OpseStr] = [],
-            lst_emails: list[OpseStr] = [],
-            lst_accounts: list[Account] = [],
-            lst_pictures: list[OpseStr] = [],
-            lst_ips: list[OpseStr] = [],
-            lst_addresses: list[OpseAddress] = [],
-            lst_locations: list[OpseLocation] = [],
-            lst_organizations: list[Organization] = [],
+            lst_phone_numbers: List[OpseStr] = [],
+            lst_usernames: List[OpseStr] = [],
+            lst_emails: List[OpseStr] = [],
+            lst_accounts: List[Account] = [],
+            lst_pictures: List[OpseStr] = [],
+            lst_ips: List[OpseStr] = [],
+            lst_addresses: List[OpseAddress] = [],
+            lst_locations: List[OpseLocation] = [],
+            lst_organizations: List[Organization] = [],
             political_orientation: OpseStr = None,
             *args,
             **kwargs
@@ -104,12 +104,12 @@ class Profile:
                 return profile
         return None
 
-    def get_lst_data_type(self) -> list[str]:
+    def get_lst_data_type(self) -> List[str]:
         """Method that returns the list of data types used in the
         profile.
 
         :return: A list of data types.
-        :rtype: list[str]
+        :rtype: List[str]
         """
         lst_data_type = []
         if self.get_firstname() is not None:
@@ -181,19 +181,19 @@ class Profile:
         """
         return self.__lastname
 
-    def get_lst_middlenames(self) -> list[OpseStr]:
+    def get_lst_middlenames(self) -> List[OpseStr]:
         """Getter of the profile middle names.
 
         :return: A list of the profile middle names.
-        :rtype: list[OpseStr]
+        :rtype: List[OpseStr]
         """
         return self.__lst_middlenames
 
-    def get_lst_usernames(self) -> list[OpseStr]:
+    def get_lst_usernames(self) -> List[OpseStr]:
         """Getter of the profile usernames.
 
         :return: A list of the profile usernames.
-        :rtype: list[OpseStr]
+        :rtype: List[OpseStr]
         """
         return self.__lst_usernames
 
@@ -245,67 +245,67 @@ class Profile:
         """
         return self.__age
 
-    def get_lst_phone_numbers(self) -> list[OpseStr]:
+    def get_lst_phone_numbers(self) -> List[OpseStr]:
         """Getter of the profile phone numbers.
 
         :return: A list of the profile phone numbers.
-        :rtype: list[OpseStr]
+        :rtype: List[OpseStr]
         """
         return self.__lst_phone_numbers
 
-    def get_lst_emails(self) -> list[OpseStr]:
+    def get_lst_emails(self) -> List[OpseStr]:
         """Getter of the profile emails.
 
         :return: A list of the profile emails.
-        :rtype: list[OpseStr]
+        :rtype: List[OpseStr]
         """
         return self.__lst_emails
 
-    def get_lst_accounts(self) -> list[Account]:
+    def get_lst_accounts(self) -> List[Account]:
         """Getter of the profile accounts.
 
         :return: A list of the profile accounts.
-        :rtype: list[Account]
+        :rtype: List[Account]
         """
         return self.__lst_accounts
 
-    def get_lst_pictures(self) -> list[OpseStr]:
+    def get_lst_pictures(self) -> List[OpseStr]:
         """Getter of the profile pictures.
 
         :return: A list of the profile pictures.
-        :rtype: list[OpseStr]
+        :rtype: List[OpseStr]
         """
         return self.__lst_pictures
 
-    def get_lst_ips(self) -> list[OpseStr]:
+    def get_lst_ips(self) -> List[OpseStr]:
         """Getter of the profile IP addresses.
 
         :return: A list of the profile IP addresses.
-        :rtype: list[OpseStr]
+        :rtype: List[OpseStr]
         """
         return self.__lst_ips
 
-    def get_lst_addresses(self) -> list[OpseAddress]:
+    def get_lst_addresses(self) -> List[OpseAddress]:
         """Getter of the profile physical addresses.
 
         :return: A list of the profile addresses.
-        :rtype: list[OpseStr]
+        :rtype: List[OpseStr]
         """
         return self.__lst_addresses
 
-    def get_lst_locations(self) -> list[OpseLocation]:
+    def get_lst_locations(self) -> List[OpseLocation]:
         """Getter of the profile locations.
 
         :return: A list of the profile locations.
-        :rtype: list[OpseStr]
+        :rtype: List[OpseStr]
         """
         return self.__lst_locations
 
-    def get_lst_organizations(self) -> list[Organization]:
+    def get_lst_organizations(self) -> List[Organization]:
         """Getter of the profile organizations.
 
         :return: A list of the profile organizations.
-        :rtype: list[OpseStr]
+        :rtype: List[OpseStr]
         """
         return self.__lst_organizations
 
@@ -333,11 +333,11 @@ class Profile:
         """
         self.__lastname = lastname
 
-    def set_lst_middlenames(self, lst_middlenames: list[OpseStr]):
+    def set_lst_middlenames(self, lst_middlenames: List[OpseStr]):
         """Setter of self.__lst_second_name"""
         self.__lst_middlenames.extend(lst_middlenames)
 
-    def set_lst_usernames(self, lst_usernames: list[OpseStr]):
+    def set_lst_usernames(self, lst_usernames: List[OpseStr]):
         """Setter of self.__lst_usernames"""
         self.__lst_usernames.extend(lst_usernames)
 
@@ -414,98 +414,98 @@ class Profile:
         else:
             raise TypeError("Missing birthdate argument")
 
-    def set_lst_phone_numbers(self, lst_phone_numbers: list[OpseStr]):
+    def set_lst_phone_numbers(self, lst_phone_numbers: List[OpseStr]):
         """Setter of the profile phone numbers.
 
         This method extends the current list of phone numbers. Use the
         getter to do other actions on the list.
 
         :param lst_phone_numbers: The new phone numbers.
-        :type lst_phone_numbers: list[OpseStr]
+        :type lst_phone_numbers: List[OpseStr]
         """
         """Setter of self.__lst_phone_numbers"""
         self.__lst_phone_numbers.extend(lst_phone_numbers)
 
-    def set_lst_emails(self, lst_emails: list[OpseStr]):
+    def set_lst_emails(self, lst_emails: List[OpseStr]):
         """Setter of the profile emails.
 
         This method extends the current list of emails. Use the
         getter to do other actions on the list.
 
         :param lst_emails: The new 
-        :type lst_emails: list[OpseStr]
+        :type lst_emails: List[OpseStr]
         """
         """Setter of self.__lst_emails"""
         self.__lst_emails.extend(lst_emails)
 
-    def set_lst_accounts(self, lst_accounts: list[Account]):
+    def set_lst_accounts(self, lst_accounts: List[Account]):
         """Setter of the profile accounts.
 
         This method extends the current list of accounts. Use the
         getter to do other actions on the list.
 
         :param lst_accounts: The new accounts.
-        :type lst_accounts: list[Account]
+        :type lst_accounts: List[Account]
         """
         """Setter of self.__lst_accounts"""
         self.__lst_accounts.extend(lst_accounts)
 
-    def set_lst_pictures(self, lst_pictures: list[OpseStr]):
+    def set_lst_pictures(self, lst_pictures: List[OpseStr]):
         """Setter of the profile pictures.
 
         This method extends the current list of pictures. Use the
         getter to do other actions on the list.
 
         :param lst_pictures: The new pictures.
-        :type lst_pictures: list[OpseStr]
+        :type lst_pictures: List[OpseStr]
         """
         """Setter of self.__lst_pictures"""
         self.__lst_pictures.extend(lst_pictures)
 
-    def set_lst_ips(self, lst_ips: list[OpseStr]):
+    def set_lst_ips(self, lst_ips: List[OpseStr]):
         """Setter of the profile IP addresses.
 
         This method extends the current list of IP addresses. Use the
         getter to do other actions on the list.
 
         :param lst_ips: The new IP addresses.
-        :type lst_ips: list[OpseStr]
+        :type lst_ips: List[OpseStr]
         """
         """Setter of self.__lst_ips"""
         self.__lst_ips.extend(lst_ips)
 
-    def set_lst_addresses(self, lst_addresses: list[OpseAddress]):
+    def set_lst_addresses(self, lst_addresses: List[OpseAddress]):
         """Setter of the profile physical addresses.
 
         This method extends the current list of addresses. Use the
         getter to do other actions on the list.
 
         :param lst_addresses: The new addresses.
-        :type lst_addresses: list[OpseAddress]
+        :type lst_addresses: List[OpseAddress]
         """
         """Setter of self.__lst_addresses"""
         self.__lst_addresses.extend(lst_addresses)
 
-    def set_lst_locations(self, lst_locations: list[OpseLocation]):
+    def set_lst_locations(self, lst_locations: List[OpseLocation]):
         """Setter of the profile locations.
 
         This method extends the current list of locations. Use the
         getter to do other actions on the list.
 
         :param lst_locations: The new locations.
-        :type lst_locations: list[OpseLocation]
+        :type lst_locations: List[OpseLocation]
         """
         """Setter of self.__lst_locations"""
         self.__lst_locations.extend(lst_locations)
 
-    def set_lst_organizations(self, lst_organizations: list[Organization]):
+    def set_lst_organizations(self, lst_organizations: List[Organization]):
         """Setter of the profile organizations.
 
         This method extends the current list of organizations. Use the
         getter to do other actions on the list.
 
         :param lst_organizations: The new organizations.
-        :type lst_organizations: list[Organization]
+        :type lst_organizations: List[Organization]
         """
         """Setter of self.__lst_organizations"""
         self.__lst_organizations.extend(lst_organizations)

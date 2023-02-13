@@ -159,7 +159,7 @@ def print_menu(title: str, proposed_items: List[str], special_opts: List[str] = 
     print()
 
 
-def show(dictionary: dict, depth: list[bool], name: str = "Name") -> str:
+def show(dictionary: dict, depth: List[bool], name: str = "Name") -> str:
     """Function that builds a string as a tree to display complex object
     structures.
 
@@ -169,7 +169,7 @@ def show(dictionary: dict, depth: list[bool], name: str = "Name") -> str:
     :param dictionary: The dictionary to convert.
     :type dictionary: dict
     :param depth: The current depth of the call.
-    :type depth: list[bool]
+    :type depth: List[bool]
     :param name: The name of the current dictionary, defaults to "Name".
     :type name: str, optional
     :return: A string representation of the dictionary.

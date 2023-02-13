@@ -19,21 +19,21 @@ class ExampleTool(Tool):
         self.example_arg = 0
 
     @staticmethod
-    def get_config() -> dict[str]:
+    def get_config() -> Dict[str]:
         return {
             'example_parameter_1': 'default_user_conf',
             'example_parameter_2': True
         }
 
     @staticmethod
-    def get_lst_input_data_types() -> dict[str, bool]:
+    def get_lst_input_data_types() -> Dict[str, bool]:
         return {
             DataTypeInput.USERNAME: True, # Required data
             DataTypeInput.EMAIL: False, # Optionnal data
         }
 
     @staticmethod
-    def get_lst_output_data_types() -> list[str]:
+    def get_lst_output_data_types() -> List[str]:
         return [
             DataTypeOutput.ACCOUNT,
         ]

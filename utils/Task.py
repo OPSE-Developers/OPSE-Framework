@@ -5,7 +5,7 @@ import threading
 import traceback
 
 from abc import ABC, abstractmethod
-from typing import Type, TypeVar
+from typing import List, Type, TypeVar
 
 from utils.stdout import print_error, print_debug
 from utils.exceptions import TaskInterrupt
@@ -30,12 +30,12 @@ class Task(ABC, threading.Thread):
         self.__lst_task.append(self)
 
     @classmethod
-    def get_tasks(cls: Type[T]) -> list[T]:
+    def get_tasks(cls: Type[T]) -> List[T]:
         """
         Return the list of all the tasks instantiated.
 
         :return: List of instantiated tasks.
-        :rtype: list[Task]
+        :rtype: List[Task]
         """        
         return cls.__lst_task
 

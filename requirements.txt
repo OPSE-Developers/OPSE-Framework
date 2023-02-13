@@ -2,3 +2,4 @@ flask
 flask-cors
 waitress
 geopy
+pyyaml
