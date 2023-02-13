@@ -27,6 +27,7 @@ class Tool(Task, ABC):
     def __init__(self, *args, **kwargs):
         """Constructor of a Tool."""
         super().__init__()
+        self._tool_config: dict = Config.get()['config']['tools'][self.get_name().lower()]
 
         # Profile which will be return when the Tool finish its job
         self.__default_profile: Profile = None
